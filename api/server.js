@@ -1,6 +1,15 @@
-const express = require('express');
+const express = require("express");
 const server = express();
-const port = 3000;
-const http = require('http');
+const cors = require("cors");
 
-server.listen(port, () => console.log(`Express departing now from http://localhost:${port};`));
+const connectDB = require("./db/connect");
+const authRouter = require("./routes/auth");
+
+server.use(cors("*"));
+server.use(express.json());
+
+server.use("/auth", authRouter);
+
+server.get("/", (req, res) => res.json({ message: "Welcome" }));
+
+module.exports = { server, connectDB };
