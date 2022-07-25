@@ -4,26 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/login.css">
     <title>Log In</title>
+    <script defer src="./js/logIn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.cjs.min.js"></script>
+
+
 </head>
 <body>
-    <div class="sign-up-section">
-        <div class="sign-up-details">
-            <h1>Log in</h1>
-            <form id="sign-up-details-form">
-                <input id="sign-up-name-input" class="sign-up-details-input" type="text" maxlength="40" placeholder="Username">
-                <p class="sign-up-error-message">
-                    Please ensure your name is at least two words and each name has a capital letter.
-                </p>
-                <input id="sign-up-password"  class="sign-up-details-input" type="password" maxlength="50" placeholder="Password">
-                <p class="sign-up-error-message">
-                    Please ensure your password has: at least 8 characters, a capital letter,
-                    a lower case letter, a number and a special character.
-                </p>
-                <button id="sign-up-submit-button">
+    <div class="log-in-container">
+        <div class="log-in-nav">
+            <a href="../index.html"><div class="fa-solid fa-arrow-left"></div></a>
+        <h2 class="log-title">Log in</h2>
+        </div>
+        
+        <div class="log-in-details">
+            
+                <input id="log-in-email" class="log-in-input" type="text" maxlength="60" placeholder="Email">
+                
+                <input id="log-in-password"  class="log-in-input" type="password" maxlength="50" placeholder="Password">
+                
+                <button id="log-in-submit" class="log-in-btn">
                     Log in
                 </button>
+
+                <a href="#" class = 'log-in-fg-pass'>Forgot Password</a>
 
             </form>
             
