@@ -5,7 +5,7 @@ logInBtn.addEventListener('click', async (e) => {
         let email = document.getElementById('log-in-email').value
         let password = document.getElementById('log-in-password').value
         let data = {email : email, password: password};
-        const response = await fetch('http://localhost:3000/auth/login', {
+        const response = await fetch('https://viva-pal.herokuapp.com/auth/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

@@ -151,7 +151,7 @@ confirmPasswordInput.addEventListener('change', () => {
 // The next block of code relates to posting sign up data to the server
 
 const signUpSubmitBtn = document.getElementById('sign-up-submit-button')
-const fetchUrl = 'http://localhost:3000/auth/register';
+const fetchUrl = 'https://viva-pal.herokuapp.com/auth/register';
 
 
 
