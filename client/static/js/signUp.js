@@ -7,8 +7,6 @@ const passwordInput = document.getElementById('sign-up-password');
 const confirmPasswordInput = document.getElementById('sign-up-confirm-password');
 const errorMessages = [...document.querySelectorAll('.sign-up-error-message')];
 const signUpInputs = [nameInput, emailInput, passwordInput, confirmPasswordInput];
-const fetchUrl = 'http://localhost:3000/auth/register';
-
 
 const email_validation = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
 const name_validation = /^[a-zA-Z '-]+$/ 
@@ -150,5 +148,54 @@ confirmPasswordInput.addEventListener('change', () => {
     }
 })
 
+// The next block of code relates to posting sign up data to the server
+
+const signUpSubmitBtn = document.getElementById('sign-up-submit-button')
+const fetchUrl = 'http://localhost:3000/auth/register';
 
 
+
+signUpSubmitBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    let signUpInputsCounter = 0;
+    let errorMessageCounter = 0;
+    const dataObject1 = {name: '',
+                     email: '',
+                    password: ''};
+
+    for (let each of signUpInputs) {
+        if (each.value === '') {
+            signUpInputsCounter += 1;
+        }
+    }
+
+    for (let each of errorMessages) {
+        if (each.style.display !== 'none') {
+            errorMessageCounter += 1;
+        }
+    }
+
+    if (signUpInputsCounter > 0 || errorMessageCounter > 0) {
+        alert('Please ensure that you have filled out the form properly');
+    } else {
+        dataObject1.name = nameInput.value;
+        dataObject1.email = emailInput.value;
+        dataObject1.password = passwordInput.value;
+
+        fetch(fetchUrl,
+            {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataObject1)
+            } 
+        )
+        .then(resp => 
+            console.log(resp.json()));
+
+    }
+ 
+    
+
+})
