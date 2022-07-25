@@ -1,4 +1,4 @@
-const { init } = require("../init.js");
+const { connectDB } = require("../db/connect");
 
 class Habit {
   constructor(data) {
