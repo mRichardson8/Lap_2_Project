@@ -3,18 +3,8 @@
 
 const dataObject = {"name": "",
                     "email": "",
-                    "password": "",
-                    "habits": [{
-                               
- 
-                             }
-                            ],
-                    "data": [{
-                             
+                    "password": ""}
 
-
-                            }]
-                   };
 const habits1 = [...document.querySelectorAll('.sign-up-checkbox')];
 const signUpSections = [...document.querySelectorAll('.sign-up-section')];
 const rightArrows = [...document.querySelectorAll('.fa-arrow-right')];
