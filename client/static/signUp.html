@@ -5,9 +5,83 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/index.css">
+    <script src="./js/signUp.js" type="text/javascript" defer></script>
     <title>Sign Up</title>
 </head>
 <body>
+    <div id="sign-up-form-container">
+
+        <div id="sign-up-first" class="sign-up-section">
+            <div class="sign-up-navbar">
+                <a href="../index.html"><div class="fa-solid fa-arrow-left"></div></a>
+                <h2 class="sign-up-h2">Habits</h2>
+                <div  id="right-arrow-1" class="fa-solid fa-arrow-right"></div>
+
+            </div>
+            <div class="sign-up-details">
+                <h3 class="sign-up-h3">Choose at least 1 habit (up to 3):</h3>
+                <div class="sign-up-checkbox-container">
+                    <input type="checkbox" id="exercise-check" class="sign-up-checkbox">
+                    <label for="exercise-check" class="sign-up-checkbox-label">Exercise More</label>
+                </div>
+                <div class="sign-up-checkbox-container">
+                    <input type="checkbox" id="sleep-check" class="sign-up-checkbox">
+                    <label for="sleep-check" class="sign-up-checkbox-label">Sleep More</label>
+                </div>
+                <div class="sign-up-checkbox-container">
+                    <input type="checkbox" id="water-check" class="sign-up-checkbox">
+                    <label for="water-check" class="sign-up-checkbox-label">Drink More Water</label>
+                </div>
+                <button id="sign-up-first-next-button" class="sign-up-next-button">
+                    Next
+                </button>
+                
+
+            </div>
+        </div>
+
+        <div id="sign-up-last" class="sign-up-section">
+            <div class="sign-up-navbar">
+                <div id="sign-up-last-left-arrow" class="fa-solid fa-arrow-left"></div>
+                <h2 id="sign-up-last-h2" class="sign-up-h2">Details</h2>
+            </div>
+            <div class="sign-up-details">
+
+                <form id="sign-up-details-form">
+                    <input id="sign-up-name-input" class="sign-up-details-input" type="text" maxlength="40" placeholder="Full name">
+                    <p class="sign-up-error-message">
+                        Please ensure your name is at least two words and each name has a capital letter.
+                    </p>
+                    <input id="sign-up-email-input" class="sign-up-details-input" type="text" maxlength="50" placeholder="Email">
+                    <p class="sign-up-error-message">
+                        Invalid email. For an email to be valid, there must be an "@" character. 
+                        Also, there must be some characters after the "@" symbol, 
+                        with at least one "." - although the "." cannot be the very last character.
+                    </p>
+                    <input id="sign-up-password"  class="sign-up-details-input" type="password" maxlength="50" placeholder="Password">
+                    <p class="sign-up-error-message">
+                        Please ensure your password has: at least 8 characters, a capital letter,
+                        a lower case letter, a number and a special character.
+                    </p>
+                    <input id="sign-up-confirm-password" class="sign-up-details-input" type="password" maxlength="50" placeholder="Confirm Password">
+                    <p class="sign-up-error-message">
+                        Please ensure that both passwords are identical.
+                    </p>
+                    <p id="sign-up-terms">
+                        By signing up to VivaPal, you agree to abide by VivaPal's
+                        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noreferrer">
+                            terms and conditions</a>.
+                    </p>
+                    <button id="sign-up-submit-button">
+                        Sign Up
+                    </button>
+
+                </form>
+                
+            </div>
+        </div>
+
+    </div>
     
 </body>
 </html>
