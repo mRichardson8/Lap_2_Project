@@ -88,4 +88,17 @@
         left: 1rem;
         top: 0.5rem;
     }
-}
+    .log-in-fg-pass {
+        font-family: 'Poppins';
+    }
+
+    #log-in-sign-redirect {
+        display: flex;
+        font-family: 'Poppins';
+        
+    }
+
+    #log-in-sign-up {
+        margin-left: 1rem;
+    }
+ }
