@@ -86,6 +86,7 @@
     .sign-up-details {
         background-color: white;
         height: calc(100vh - 50px);
+        overflow: hidden;
         padding: 2rem;
         display: flex;
         flex-direction: column;
@@ -158,7 +159,7 @@
     }
 
     #sign-up-last {
-        display: none;
+        display: block;
     }
 
     #sign-up-last-h2 {
@@ -205,7 +206,7 @@
     }
 
     #sign-up-submit-button {
-        display: flex;
+        display: block;
         justify-content: center;
         align-items: center;
         background-color: white;
