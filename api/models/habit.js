@@ -40,7 +40,22 @@ class Habit {
       }
     });
   }
-
+  static delete(habit) {
+  return new Promise(async (res, rej) => {
+    try {
+        const db = await init();
+        const createHabit = await db
+          .collection("habitsTracker")
+          .findOneAndDelete(
+            { username: habit.username },
+            { $push: { habit: habit.habit } }
+          );
+        res(createHabit);
+      } catch (err) {
+        rej(`Error deleting habits: ${err}`);
+      }
+  })
+}
   static findByUsername(username) {
     return new Promise(async (res, rej) => {
       try {
