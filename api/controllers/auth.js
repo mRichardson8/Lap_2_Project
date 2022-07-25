@@ -1,15 +1,12 @@
 const User = require("../models/user");
-const bcrypt = require("bcryptjs");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const register = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
-    const salt = await bcrypt.genSalt(10);
-    const hashed = await bcrypt.hash(password, salt);
-    const tempUser = { name, email, password: hashed };
-    const user = await User.create({ ...tempUser });
-    res.status(201).json({ user });
+    const user = await User.create({ ...req.body });
+    console.log(user);
+    const token = user.createJWT();
+    res.status(201).json({ user, token });
   } catch (error) {
     res.status(500).json({ msg: error });
   }
@@ -17,26 +14,22 @@ const register = async (req, res) => {
 
 const login = async (req, res) => {
   try {
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) { 
-      throw new Error('No such user');
+    const { email, password } = req.body;
+    if (!email || !password) {
+      throw new Error("Please provide email and password");
     }
-    const authed = bcrypt.compare(req.body.password, user.password);
-    if (!!authed) {
-      const payload = { name: user.name, email: user.email};
-      const sendToken = (err, token) => {
-        if (err) {
-          throw new Error('Error in token generation');
-        }
-        res.status(200).json ({
-          success: true,
-          token: 'Bearer ' + token,
-        });
-      };
-      jwt.sign(payload, process.env.SECRET, { expiresIn: 3600}, sendToken);
-    } else {
-      throw new Error('User could not be authenticated');
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      throw new Error("No such user");
     }
+    // compare password
+    const isPasswordOk = await user.comparePassword(password);
+    if (!isPasswordOk) {
+      throw new Error("Invalid Credentials");
+    }
+    const token = user.createJWT();
+    res.status(200).json({ token });
   } catch (err) {
     console.log(err);
     res.status(401).json({ err });
