@@ -14,7 +14,8 @@ const Habit = require('../models/habit');
 
 const getHabitsByName = async (req, res) => {
     try {
-        const habit = await Habit.findById(req.params.id);
+
+        const habit = await Habit.findOne({createdBy : req.user.userId});
         res.status(200).json({ habit });
       } catch (err) {
         res.status(500).send(err);
