@@ -8,6 +8,7 @@ const HabitSchema = new mongoose.Schema({
     maxlength: 50,
   },
   habits: {
+    type: Object,
     required: [true, "Please choose at least one habit!"],
   },
   createdBy: {

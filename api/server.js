@@ -4,11 +4,13 @@ const cors = require("cors");
 
 const connectDB = require("./db/connect");
 const authRouter = require("./routes/auth");
+const habitRouter = require("./routes/habit");
 
 server.use(cors("*"));
 server.use(express.json());
 
 server.use("/auth", authRouter);
+server.use("/api", habitRouter);
 
 server.get("/", (req, res) => res.json({ message: "Welcome" }));
 

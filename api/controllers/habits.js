@@ -23,6 +23,7 @@ const getHabitsByName = async (req, res) => {
 
 const createHabit = async (req, res) => {
     try {
+          req.body.createdBy = req.user.userId;
          const habit = await Habit.create(req.body);
          res.status(201).json(habit);
      } catch (err) {
