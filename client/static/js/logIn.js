@@ -16,7 +16,7 @@ logInBtn.addEventListener('click', async (e) => {
         localStorage.setItem('token', tokenData.token)
         const payload = jwt_decode(tokenData.token);
         localStorage.setItem('email', payload.email)
-        window.location.pathname = '/client/static/userPage.html';
+        window.location.pathname = '/static/userPage.html';
 
     } catch (err){
         console.log(err);
