@@ -9,23 +9,38 @@ async function getUserData() {
     let response = await data.json();
     if (!response.habit) {
         document.getElementById('user-page-create-habits-container').style.display = 'flex';
+    }else{
+        createHabits(response.habits);
     }
-
-    
-
 }
 
+function createHabits(habits) {
+    let habitsDiv = document.getElementById('habits-container');
+    if(habits.water){
+        waterDiv = createWaterDiv(habits.water);
+        habitsDiv.append(waterDiv);
+    }
+    if (habits.sleep){
+        sleepDiv = createSleepDiv(habits.sleep);
+        habitsDiv.append(sleepDiv);
+    }
+    if (habits.exercise){
+        exerciseDiv = createExerciseDiv(habits.exercise);
+        habitsDiv.append(exerciseDiv);
+    }
+
+}
 getUserData();
 
 // This first block of code relates to the user being able to progress through the sign
 // up process and also go back to previous sections.
 
 
-const habits1 = [...document.querySelectorAll('.sign-up-checkbox')];
-const signUpSections = [...document.querySelectorAll('.sign-up-section')];
+const habits1 = [...document.querySelectorAll('.user-page-checkbox')];
+const signUpSections = [...document.querySelectorAll('.user-page-section')];
 const rightArrows = [...document.querySelectorAll('.fa-arrow-right')];
 const leftArrows = [...document.querySelectorAll('.fa-arrow-left')];
-const nextButtons = [...document.querySelectorAll('.sign-up-next-button')];
+const nextButtons = [...document.querySelectorAll('.user-page-next-button')];
 
 function next1Arrow(e) {
     let checkCounter = 0;
