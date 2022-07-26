@@ -75,6 +75,10 @@
         font-size: 1rem;
     }
 
+    .log-in-input:focus {
+        outline: none;
+    }
+
     .log-in-btn {
         display: flex;
         justify-content: center;
