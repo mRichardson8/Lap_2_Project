@@ -10,7 +10,7 @@ class Habit {
   static get all() {
     return new Promise(async (resolve, reject) => {
       try {
-        const db = await init();
+        const db = await connectDB();
         const dbData = await db.collection("habitsTracker").find({}).toArray();
         const allHabits = dbData.map((d) => new Habit(d));
         if (!allHabits.length) {
@@ -27,7 +27,7 @@ class Habit {
   static create(habit) {
     return new Promise(async (res, rej) => {
       try {
-        const db = await init();
+        const db = await connectDB();
         const createHabit = await db
           .collection("habitsTracker")
           .findOneAndUpdate(
@@ -43,7 +43,7 @@ class Habit {
   static delete(habit) {
   return new Promise(async (res, rej) => {
     try {
-        const db = await init();
+        const db = await connectDB();
         const createHabit = await db
           .collection("habitsTracker")
           .findOneAndDelete(
@@ -59,7 +59,7 @@ class Habit {
   static findByUsername(username) {
     return new Promise(async (res, rej) => {
       try {
-        const db = await init();
+        const db = await connectDB();
         const user = await db
           .collection("habitsTracker")
           .findOne({ username: username });
@@ -72,7 +72,7 @@ class Habit {
   static get findHabitByUsername() {
     return new Promise(async (resolve, reject) => {
       try {
-        const db = await init();
+        const db = await connectDB();
         const dbData = await db
           .collection("habitsTracker")
           .find({ username: habit.username });
