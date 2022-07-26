@@ -22,7 +22,11 @@ const createHabit = async (req, res) => {
 
 const updateHabit = async (req, res) => {
   try {
-    const habit = await Habit.findOneAndUpdate({ createdBy: req.user.userId }, req.body, {new: true, runValidators: true});
+    const habit = await Habit.findOneAndUpdate(
+      { createdBy: req.user.userId },
+      req.body,
+      { new: true, runValidators: true }
+    );
     res.status(200).json({ habit });
   } catch (err) {
     res.status(417).send(err);
@@ -31,8 +35,8 @@ const updateHabit = async (req, res) => {
 
 const deleteHabit = async (req, res) => {
   try {
-    const habit = await Habit.findOneAndDelete(req.body);
-    res.status(200).json(habit);
+    const habit = await Habit.findOneAndDelete({ createdBy: req.user.userId });
+    res.status(200).send();
   } catch (err) {
     console.log(err);
     res.status(422).json({ message: err });
