@@ -6,9 +6,7 @@ async function getUserData() {
              "Authorization": "Bearer " + localStorage.token,
         }
     })
-    console.log(data);
     let response = await data.json();
-    console.log(response);
     if (!response.habit) {
         document.getElementById('user-page-create-habits-container').style.display = 'flex';
     }
