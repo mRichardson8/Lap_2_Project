@@ -37,65 +37,56 @@ getUserData();
 
 
 const habits1 = [...document.querySelectorAll('.user-page-checkbox')];
+const rightArrow1 = document.getElementById('right-arrow-1');
+const nextButton1 = document.getElementById('user-page-first-next-button');
+const leftArrow1 = document.getElementById('left-arrow-1');
 const userPageSections = [...document.querySelectorAll('.user-page-section')];
-const rightArrows = [...document.querySelectorAll('.fa-arrow-right')];
-const leftArrows = [...document.querySelectorAll('.fa-arrow-left')];
+const userPageSelectContainers = [...document.querySelectorAll('.user-page-select-container')];
 const nextButtons = [...document.querySelectorAll('.user-page-next-button')];
 
-function next1Arrow(e) {
+function nextSection() {
     let checkCounter = 0;
+
+    for (let each of userPageSelectContainers) {
+        each.style.display = 'none';
+    }
+
     for (let each of habits1) {
         if (each.checked === true) {
             checkCounter += 1;
         }
     }
     if (checkCounter > 0) {
-        let indexPosition = rightArrows.indexOf(e.target);
-        userPageSections[indexPosition].style.display = 'none';
-        userPageSections[indexPosition + 1].style.display = 'block';
-    } else {
-        alert('Choose at least one habit to move to next section');
-    }
-
-}
-
-function prev1Arrow(e) {
-    let indexPosition = leftArrows.indexOf(e.target);
-    userPageSections[indexPosition].style.display = 'none';
-    userPageSections[indexPosition - 1].style.display = 'block';
-}
-
-function next1Btn(e) {
-    let checkCounter = 0;
-    for (let each of habits1) {
-        if (each.checked === true) {
-            checkCounter += 1;
+        for (let each of habits1) {
+            if (each.checked === true) {
+                let indexPosition = habits1.indexOf(each);
+                userPageSelectContainers[indexPosition].style.display = 'flex';
+            }
         }
-    }
-    if (checkCounter > 0) {
-        let indexPosition = nextButtons.indexOf(e.target);
-        userPageSections[indexPosition].style.display = 'none';
-        userPageSections[indexPosition + 1].style.display = 'block';
+        document.getElementById('user-page-first').style.display = 'none';
+        document.getElementById('user-page-second').style.display = 'flex';
     } else {
         alert('Choose at least one habit to move to next section');
     }
+
+}
+
+function previousSection() {
+    document.getElementById('user-page-second').style.display = 'none';
+    document.getElementById('user-page-first').style.display = 'flex';
 }
 
 
-leftArrows.forEach(each => {
-    each.addEventListener('click', (e) => {
-        prev1Arrow(e);
-    })
+rightArrow1.addEventListener('click', () => {
+    nextSection();
 })
 
-rightArrows.forEach(each => {
-    each.addEventListener('click', (e) => {
-        next1Arrow(e);
-    })
+nextButton1.addEventListener('click', () => {
+    nextSection();
 })
 
-nextButtons.forEach(each => {
-    each.addEventListener('click', (e) => {
-        next1Btn(e);
-    })
+leftArrow1.addEventListener('click', () => {
+    previousSection();
 })
+
+

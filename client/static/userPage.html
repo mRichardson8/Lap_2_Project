@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="./css/userPage.css">
     <script src="./js/userPage.js" type="text/javascript" defer></script>
+    <title>Dashboard</title>
 </head>
 <body>
-    <div id="user-page-create-habits-container" style="display: none;">
+    <div id="user-page-create-habits-container">
 
         <div id="user-page-first" class="user-page-section">
 
@@ -46,7 +46,7 @@
         <div id="user-page-second" class="user-page-section">
 
             <div class="user-page-navbar">
-                <div class="fa-solid fa-arrow-left"></div>
+                <div id="left-arrow-1" class="fa-solid fa-arrow-left"></div>
                 <h2 class="user-page-h2">Goals</h2>
     
             </div>
@@ -55,39 +55,42 @@
                 <h3 class="user-page-h3">Specify your goals:</h3>
                 
                 <div class="user-page-select-container">
-                    <select id="exercise-goal">
+                    <label for="exercise-goal" class="user-page-goal-label">I want to exercise:</label>
+                    <select id="exercise-goal" class="user-page-select-goal">
 
-                        <option value="20" selected>At least 20 minutes</option>
-                        <option value="30">At least 20 minutes</option>
-                        <option value="45">At least 45 minutes</option>
-                        <option value="60">At least 1 hour</option>
-                        <option value="90">At least 90 minutes</option>
-                        <option value="120">At least 2 hours</option>
+                        <option value="20" selected>At least 20 minutes per day</option>
+                        <option value="30">At least 30 minutes per day</option>
+                        <option value="45">At least 45 minutes per day</option>
+                        <option value="60">At least 1 hour per day</option>
+                        <option value="90">At least 90 minutes per day</option>
+                        <option value="120">At least 2 hours per day</option>
 
                     </select>
                 </div>
 
                 <div class="user-page-select-container">
-                    <select id="sleep-goal">
+                    <label for="sleep-goal" class="user-page-goal-label">I want to sleep:</label>
+                    <select id="sleep-goal" class="user-page-select-goal">
 
-                        <option value="5">At least 5 hours</option>
-                        <option value="6">At least 6 hours</option>
-                        <option value="7" >At least 7 hours</option>
-                        <option value="8" selected>At least 8 hours</option>
-                        <option value="9">At least 9 hours</option>
+                        <option value="5">At least 5 hours per night</option>
+                        <option value="6">At least 6 hours per night</option>
+                        <option value="7" >At least 7 hours per night</option>
+                        <option value="8" selected>At least 8 hours per night</option>
+                        <option value="9">At least 9 hours per night</option>
                         
                     </select>
                 </div>
 
                 <div class="user-page-select-container">
-                    <select id="water-goal">
+                    <label for="water-goal" class="user-page-goal-label">I want to drink:</label>
+                    <select id="water-goal" class="user-page-select-goal">
 
-                        <option value="500">At least 500ml</option>
-                        <option value="1000">At least 1 litre</option>
-                        <option value="1500" >At least 1500ml</option>
-                        <option value="2000" selected>At least 2 litres</option>
-                        <option value="2500">At least 2500ml</option>
-                        <option value="3000">At least 3 litres</option>
+                        <option value="500">At least 500ml of water per day</option>
+                        <option value="1000">At least 1 litre of water per day</option>
+                        <option value="1500" >At least 1500ml of water per day</option>
+                        <option value="2000" selected>At least 2 litres of water per day</option>
+                        <option value="2500">At least 2500ml of water per day</option>
+                        <option value="3000">At least 3 litres of water per day</option>
 
                         
                     </select>
