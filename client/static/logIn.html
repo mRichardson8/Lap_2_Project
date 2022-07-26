@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/login.css">
+    <title>Log In</title>
+    <script defer src="./js/logIn.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jwt-decode@3.1.2/build/jwt-decode.cjs.min.js"></script>
+
+
+</head>
+<body>
+    <div class="log-in-container">
+        <div class="log-in-nav">
+            <a href="../index.html"><div class="fa-solid fa-arrow-left"></div></a>
+        <h2 class="log-title">Log in</h2>
+        </div>
+        
+        <div class="log-in-details">
+            
+                <input id="log-in-email" class="log-in-input" type="text" maxlength="60" placeholder="Email">
+                
+                <input id="log-in-password"  class="log-in-input" type="password" maxlength="50" placeholder="Password">
+                
+                <button id="log-in-submit" class="log-in-btn">
+                    Log in
+                </button>
+
+                <div id="log-in-sign-redirect">
+                    <p>Haven't got an account?</p>
+                    <a id="log-in-sign-up" href="./signUp.html">Sign up</a>
+
+                </div>
+
+                <a href="https://giphy.com/gifs/SheetsGiggles-jerry-seinfeld-a-shame-USnfWeCOHTHB3WX0aY/fullscreen" class = 'log-in-fg-pass'>Forgot Password?</a>
+
+            </form>
+            
+        </div>
+    </div>
+</body>
+</html>
