@@ -31,7 +31,16 @@ const createHabit = async (req, res) => {
      }
 }
 
-const deleteHabit = async (req, res) =>{
+const updateHabit = async (req, res) => {
+    try {
+        const habit = await Habit.findOneAndUpdate(req.body);
+        res.status(200).json({ habit });
+      } catch (err) {
+        res.status(417).send(err);
+      }
+};
+
+const deleteHabit = async (req, res) => {
     try {
         const habit = await Habit.findOneAndDelete(req.body);
         res.status(200).json(habit);
@@ -44,5 +53,6 @@ const deleteHabit = async (req, res) =>{
 module.exports = {
     getHabitsByName,
     createHabit,
+    updateHabit,
     deleteHabit,
   };
