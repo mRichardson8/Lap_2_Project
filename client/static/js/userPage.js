@@ -1,13 +1,15 @@
 function getUserData() {
 
     fetch('https://viva-pal.herokuapp.com/api/habits', {
-        "headers": {
+        mode: 'no-cors',
+        headers: {
              "authorization": localStorage.token,
         }
     })
     .then(response => 
         response.json())
     .then(data => {
+        console.log(data.habit);
         if (!data.habit) {
            document.getElementById('user-page-create-habits-container').style.display = 'flex';
         } 
@@ -15,7 +17,7 @@ function getUserData() {
 
 }
 
-
+getUserData();
 
 // This first block of code relates to the user being able to progress through the sign
 // up process and also go back to previous sections.
