@@ -1,9 +1,25 @@
+function getUserData() {
+
+    fetch('https://viva-pal.herokuapp.com/api/habits', {
+        "headers": {
+             "authorization": localStorage.token,
+        }
+    })
+    .then(response => 
+        response.json())
+    .then(data => {
+        if (!data.habit) {
+           document.getElementById('user-page-create-habits-container').style.display = 'flex';
+        } 
+    })
+
+}
+
+
+
 // This first block of code relates to the user being able to progress through the sign
 // up process and also go back to previous sections.
 
-const dataObject = {"name": "",
-                    "email": "",
-                    "password": ""}
 
 const habits1 = [...document.querySelectorAll('.sign-up-checkbox')];
 const signUpSections = [...document.querySelectorAll('.sign-up-section')];

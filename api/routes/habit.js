@@ -8,8 +8,8 @@ const {
   deleteHabit,
 } = require("../controllers/habits");
 
-router.post("/habits", authentication, getHabitsByName);
+router.get("/habits", authentication, getHabitsByName);
 router.post("/createhabit", authentication, createHabit);
-router.post("/deletehabit", authentication, deleteHabit);
+router.delete("/habits", authentication, deleteHabit);
 
 module.exports = router;
