@@ -5,18 +5,20 @@ const HabitSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please provide a name"],
     minlength: 3,
-    maxlength: 50
+    maxlength: 50,
   },
   habits: {
-    type: Array, 
-    required: [true, "Please choose at least one habit!"]
+    type: Object,
+    required: [true, "Please choose at least one habit!"],
   },
   createdBy: {
     type: mongoose.Types.ObjectId,
     ref: "User",
     required: [true, "Please provide user"],
+  },
+  data: {
+    type: Array,
+  },
+});
 
-  }
-})
-
-const habit = db.model('Habit', HabitSchema);
+module.exports = mongoose.model("Habit", HabitSchema);
