@@ -151,7 +151,7 @@ confirmPasswordInput.addEventListener('change', () => {
 // The next block of code relates to posting sign up data to the server
 
 const signUpSubmitBtn = document.getElementById('sign-up-submit-button')
-const fetchUrl = 'http://localhost:3000/auth/register';
+const fetchUrl = 'https://viva-pal.herokuapp.com/auth/register';
 
 
 
@@ -192,7 +192,14 @@ signUpSubmitBtn.addEventListener('click', (e) => {
             } 
         )
         .then(resp => 
-            console.log(resp.json()));
+            resp.json())
+        .then(data => {
+            localStorage.setItem('token', data.token)
+            const payload = jwt_decode(data.token);
+            localStorage.setItem('email', payload.email)
+            localStorage.setItem('userId', payload.userId)
+            window.location.pathname = '/static/userPage.html';
+        })
 
     }
  

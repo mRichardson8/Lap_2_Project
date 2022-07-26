@@ -1,9 +1,22 @@
+async function getUserData() {
+
+    let data = await fetch('https://viva-pal.herokuapp.com/api/habits', {
+        method: "GET",
+        headers: {
+             "Authorization": "Bearer " + localStorage.token,
+        }
+    })
+    console.log(data);
+    let response = await data.json();
+    console.log(response)
+
+}
+
+getUserData();
+
 // This first block of code relates to the user being able to progress through the sign
 // up process and also go back to previous sections.
 
-const dataObject = {"name": "",
-                    "email": "",
-                    "password": ""}
 
 const habits1 = [...document.querySelectorAll('.sign-up-checkbox')];
 const signUpSections = [...document.querySelectorAll('.sign-up-section')];
