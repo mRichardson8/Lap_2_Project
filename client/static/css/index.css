@@ -61,4 +61,174 @@
     .homepage-button a:hover {
         text-decoration: underline;
     }
+
+    .user-page-navbar {
+        background-color: var(--blue-theme);
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .fa-arrow-left, .fa-arrow-right {
+        color: white;
+        font-size: 2rem;
+    }
+
+    .fa-arrow-left, .fa-arrow-right {
+        cursor: pointer;
+    }
+
+    .user-page-h2 {
+        max-width: 200px;
+        color: white;
+        font-family: 'Poppins';
+        font-size: 2rem;
+    }
+
+    .user-page-details {
+        background-color: white;
+        min-height: fit-content;
+        overflow: hidden;
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        right: 10%;
+    }
+
+    .user-page-h3 {
+        text-align: center;
+        color: var(--blue-theme);
+        font-family: 'Poppins';
+        font-size: 2rem;
+
+    }
+
+    .user-page-checkbox-container {
+        margin: 1rem 0px;
+        height: 50px;
+        width: 250px;
+    }
+
+    .user-page-checkbox {
+       display: none;
+    }
+
+    .user-page-checkbox:checked + label {
+        color: var(--blue-theme);
+        background-color: white;
+        border: 1px solid var(--blue-theme);
+    }
+
+    .user-page-checkbox-label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--blue-theme);
+        color: white;
+        font-family: 'Poppins';
+        font-size: 1.5rem;
+        height: 50px;
+        width: 250px;
+        border-radius: 15px;
+        border: none;
+        margin: 1rem 0;
+    }
+
+    .user-page-checkbox-label:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    .user-page-next-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: var(--blue-theme);
+        font-family: 'Poppins';
+        font-size: 1.5rem;
+        height: 50px;
+        width: 250px;
+        border-radius: 15px;
+        border: 1px solid var(--blue-theme);
+        margin-top: 2rem;
+    }
+
+    .user-page-next-button:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+    #user-page-last {
+        display: block;
+    }
+
+    #user-page-last-h2 {
+        margin: auto;
+    }
+
+    #user-page-details-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-page-details-input {
+        width: 300px;
+        border-top: none;
+        border-right: none;
+        border-left: none;
+        border-bottom: 1px solid black;
+        color: var(--blue-theme);
+        font-family: 'Poppins';
+        margin-bottom: 1rem;
+        font-size: 1rem;
+    }
+
+    .user-page-details-input:focus {
+        outline: none;
+    }
+
+    .user-page-details-input::placeholder {
+        color: var(--blue-theme);
+    } 
+
+    .user-page-error-message {
+        font-family: 'Poppins';
+        color: var(--blue-theme);
+        font-size: 0.75rem;
+        max-width: 300px;
+        display: none;
+    }
+     
+    #user-page-terms {
+        font-family: 'Poppins';
+        max-width: 300px;
+    }
+
+    #user-page-submit-button {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        background-color: white;
+        color: var(--blue-theme);
+        font-family: 'Poppins';
+        font-size: 1.5rem;
+        height: 50px;
+        width: 250px;
+        border-radius: 15px;
+        border: 1px solid var(--blue-theme);
+        margin-top: 1rem;
+    }
+
+    #user-page-submit-button:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
 }
