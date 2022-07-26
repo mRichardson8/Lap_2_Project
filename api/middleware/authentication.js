@@ -12,7 +12,11 @@ const auth = async (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
     // attach the user to the habit routes
-    req.user = { userId: payload.userId, name: payload.name };
+    req.user = {
+      userId: payload.userId,
+      name: payload.name,
+      email: payload.email,
+    };
     next();
   } catch (error) {
     console.log(Error);
