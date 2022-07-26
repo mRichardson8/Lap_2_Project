@@ -8,7 +8,12 @@ async function getUserData() {
     })
     console.log(data);
     let response = await data.json();
-    console.log(response)
+    console.log(response);
+    if (!response.habit) {
+        document.getElementById('user-page-create-habits-container').style.display = 'flex';
+    }
+
+    
 
 }
 
