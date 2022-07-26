@@ -1,9 +1,9 @@
 const Habit = require("../models/habit");
 
-const getHabits = async (req, res) => {
+const getHabitsByName = async (req, res) => {
   try {
-    const habits = await Habit.find({ createdBy: req.user.userId });
-    res.status(200).json({ habits });
+    const habit = await Habit.findOne({ createdBy: req.user.userId });
+    res.status(200).json({ habit });
   } catch (err) {
     res.status(500).send(err);
   }
@@ -44,7 +44,7 @@ const deleteHabit = async (req, res) => {
 };
 
 module.exports = {
-  getHabits,
+  getHabitsByName,
   createHabit,
   updateHabit,
   deleteHabit,
