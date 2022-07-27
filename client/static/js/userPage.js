@@ -32,6 +32,8 @@ async function sendHabits(){
         data : []
     }
 
+    console.log(habitObj);
+
     let response = await fetch('https://viva-pal.herokuapp.com/api/createhabit', {
         method: 'POST',
         headers: {

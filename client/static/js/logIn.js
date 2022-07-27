@@ -15,6 +15,8 @@ logInBtn.addEventListener('click', async (e) => {
         const tokenData = await response.json()
         localStorage.setItem('token', tokenData.token)
         const payload = jwt_decode(tokenData.token);
+        localStorage.setItem('userId', payload.userId);
+        localStorage.setItem('name', payload.name);
         localStorage.setItem('email', payload.email)
         window.location.pathname = '/static/userPage.html';
 
