@@ -15,8 +15,6 @@ logInBtn.addEventListener('click', async (e) => {
         const tokenData = await response.json()
         localStorage.setItem('token', tokenData.token)
         const payload = jwt_decode(tokenData.token);
-        localStorage.setItem('userId', payload.userId);
-        localStorage.setItem('name', payload.name);
         localStorage.setItem('email', payload.email)
         window.location.pathname = '/static/userPage.html';
 
@@ -27,16 +25,3 @@ logInBtn.addEventListener('click', async (e) => {
     }
     
 })
-
-// Fix autocomplete
-function fix_autocomplete() {
-    setTimeout(() => {
-        if ($(this).is(':-internal-autofill-selected')) {
-            var clone = $(this).clone(true, true);
-            $(this).after(clone);
-            $(this).remove();
-        }
-    }, 10);
-}
-
-$('.form-control').on('input', fix_autocomplete);

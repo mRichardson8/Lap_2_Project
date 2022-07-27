@@ -5,7 +5,6 @@ const { Error } = require("mongoose");
 const auth = async (req, res, next) => {
   // check header
   const authHeader = req.headers.authorization;
-  console.log(req.headers);
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     throw new Error("Authentication invalid");
   }
