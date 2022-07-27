@@ -231,7 +231,43 @@ userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
 const btn = document.querySelector('.btn-toggle');
-btn.addEventListener('click', function() {
-  document.body.classList.toggle('dark-theme');
-  document.getElementsByClassName.toggle('dark-theme');
+
+// btn.addEventListener('click', function() {
+//   document.body.classList.toggle('dark-theme');
+//   document.getElementsByClassName.toggle('dark-theme');
+// })
+
+const everything = [...document.querySelectorAll('*')];
+
+
+function darkMode() {
+    everything.forEach(each => {
+        if (each.style.color === '#3decdd') {
+            each.style.color = '#1c059f';
+        } else if (each.style.color === '#1c059f') {
+            each.style.color = "#3decdd";
+        }
+        if (each.style.backgroundColor === "#3decdd") {
+            each.style.backgroundColor = '#1c059f';
+    
+        } else if (each.style.backgroundColor === '#1c059f') {
+            each.style.backgroundColor = "#3decdd";
+        }
+        if (each.style.color === "#ffffff") {
+            each.style.color = "#a3a2a2";
+        } else if (each.style.color === "#a3a2a2") {
+            each.style.color = "#ffffff"
+        }
+        if (each.style.backgroundColor === "#ffffff"){
+            each.style.backgroundColor = '#a3a2a2';
+        } else if (each.style.backgroundColor === '#a3a2a2') {
+            each.style.backgroundColor = "#ffffff";
+        }
+    })
+}
+
+
+btn.addEventListener('click', () => {
+    darkMode();
 })
+
