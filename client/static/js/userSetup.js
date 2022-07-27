@@ -11,10 +11,6 @@ function createUserDetails(user) {
   settingsIcon2.innerHTML =
   '<button><span class="material-symbols-outlined"> dark_mode </span></button>';
   settingsIcon2.setAttribute("class", "btn-toggle");
-  settingsIcon2
-  .addEventListener('click', () => {
-    darkMode();
-  });
   let name = document.createElement("p");
   name.innerText = user;
   name.setAttribute("class", "userName");
