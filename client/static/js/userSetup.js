@@ -61,7 +61,7 @@ function createWaterDiv(data){
             let btnsContainer = document.createElement('div');
             btnsContainer.style.display = 'flex';
             let inputLabel = document.createElement('label');
-            inputLabel.textContent = 'Water consumed:';
+            inputLabel.textContent = 'Water consumed (ml):';
             let inputNumber = document.createElement('input');
             inputNumber.setAttribute('type', 'number');
             let inputSubmitBtn = document.createElement('button');
@@ -102,8 +102,41 @@ function createExerciseDiv(data) {
   let current = document.createElement("p");
   current.innerText = "Minutes exercised today: " + data.current + " mins";
   current.setAttribute("class", "habit-current");
+  current.setAttribute("id", "exercise-current");
   let addBtn = document.createElement("button");
   addBtn.innerText = "+";
+  addBtn.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('exercise-current').nextSibling) {
+        let inputDiv = document.createElement('div');
+        inputDiv.style.display = 'flex';
+        inputDiv.style.flexDirection = 'column';
+        let inputContainer = document.createElement('div');
+        inputContainer.style.display = 'flex';
+        let btnsContainer = document.createElement('div');
+        btnsContainer.style.display = 'flex';
+        let inputLabel = document.createElement('label');
+        inputLabel.textContent = 'Minutes of Exercise:';
+        let inputNumber = document.createElement('input');
+        inputNumber.setAttribute('type', 'number');
+        let inputSubmitBtn = document.createElement('button');
+        inputSubmitBtn.textContent = "Add entry";
+        inputSubmitBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        let inputUndoBtn = document.createElement('button');
+        inputUndoBtn.textContent = 'Undo';
+        inputUndoBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        inputContainer.append(inputLabel, inputNumber);
+        btnsContainer.append(inputUndoBtn, inputSubmitBtn);
+        inputDiv.append(inputContainer, btnsContainer);
+        document.getElementById('exercise-current').parentNode
+        .insertBefore(inputDiv, document.getElementById('exercise-current').nextSibling);
+    }
+    
+})
+
 
   div.append(title, streak, target, current, addBtn);
   return div;
@@ -124,9 +157,40 @@ function createSleepDiv(data) {
   let current = document.createElement("p");
   current.innerText = "Hours slept last night: " + data.current + " hrs";
   current.setAttribute("class", "habit-current");
+  current.setAttribute("id", "sleep-current")
   let addBtn = document.createElement("button");
   addBtn.innerText = "+";
-
+  addBtn.addEventListener('click', (e) => {
+    if (e.target === document.getElementById('sleep-current').nextSibling) {
+        let inputDiv = document.createElement('div');
+        inputDiv.style.display = 'flex';
+        inputDiv.style.flexDirection = 'column';
+        let inputContainer = document.createElement('div');
+        inputContainer.style.display = 'flex';
+        let btnsContainer = document.createElement('div');
+        btnsContainer.style.display = 'flex';
+        let inputLabel = document.createElement('label');
+        inputLabel.textContent = 'Hours of sleep:';
+        let inputNumber = document.createElement('input');
+        inputNumber.setAttribute('type', 'number');
+        let inputSubmitBtn = document.createElement('button');
+        inputSubmitBtn.textContent = "Add entry";
+        inputSubmitBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        let inputUndoBtn = document.createElement('button');
+        inputUndoBtn.textContent = 'Undo';
+        inputUndoBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        inputContainer.append(inputLabel, inputNumber);
+        btnsContainer.append(inputUndoBtn, inputSubmitBtn);
+        inputDiv.append(inputContainer, btnsContainer);
+        document.getElementById('sleep-current').parentNode
+        .insertBefore(inputDiv, document.getElementById('sleep-current').nextSibling);
+    }
+    
+})
   div.append(title, streak, target, current, addBtn);
   return div;
 }
