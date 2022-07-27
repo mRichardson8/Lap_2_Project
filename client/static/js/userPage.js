@@ -117,10 +117,7 @@ async function updateHabits(habitParam) {
       Authorization: "Bearer " + localStorage.token,
       "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      //make function to create habits object to send with only right habits
-      habitParam
-    }),
+    body: JSON.stringify(habitParam),
   });
   let response = await data.json();
   console.log(response.status)
