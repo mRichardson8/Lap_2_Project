@@ -272,6 +272,7 @@ function createChart(dataHabit) {
   const ctx = document.getElementById("myChart").getContext("2d");
   // what goes on the x axis
   const labels = dataHabit.map((d) => d.date);
+  const values = dataHabit.map(habits => calcDataset(Object.entries(habits.habits)))
   //   const goals = Object.keys(dataHabit).length;
   const data = {
     labels,
@@ -281,14 +282,14 @@ function createChart(dataHabit) {
         backgroundColor: "#3decdd",
         borderColor: "rgb(255, 99, 132)",
         // points on the bar chart where we put the actual data we need
-        data: [20, 30, 45],
+        data: values.map(arr => arr[0]),
       },
       {
         label: "Sleep",
         backgroundColor: "blue",
         borderColor: "rgb(255, 99, 132)",
         // points on the bar chart where we put the actual data we need,
-        data: [20, 30, 45].reverse(),
+        data: values.map(arr => arr[1]),
       },
     ],
   };
@@ -307,6 +308,19 @@ function createChart(dataHabit) {
     },
   };
   const myChart = new Chart(ctx, config);
+}
+
+function calcDataset(habits){
+  let dataSet = [] //each index is for a different habit
+  let numberOfHabits = habits.length
+  habits.forEach( habit => {
+    if(habit[1].current > habit[1].required){
+      habit[1].current = habit[1].required
+    }
+      let value = (habit[1].current / habit[1].required) * (100/numberOfHabits)
+      dataSet.push(value)
+  });
+  return dataSet
 }
 
 // createChart();
