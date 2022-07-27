@@ -3,12 +3,18 @@ function createUserDetails(user) {
   let userNav = document.createElement("div");
   userNav.setAttribute("class", "user-nav");
   let title = document.createElement("h1");
-  title.textContent = "Vivapal";
-  let name = document.createElement("p");
-  name.innerText = user;
+  title.textContent = "VivaPal";
   let settingsIcon = document.createElement("p");
   settingsIcon.innerHTML = '<i class="fa-solid fa-user-gear"></i>';
-  userNav.append(title, name, settingsIcon);
+  settingsIcon.setAttribute("class", "icons");
+  let settingsIcon2 = document.createElement("p");
+  settingsIcon2.innerHTML =
+  '<span class="material-symbols-outlined"> dark_mode </span>';
+  settingsIcon2.setAttribute("class", "icons2");
+  let name = document.createElement("p");
+  name.innerText = user;
+  name.setAttribute("class", "userName");
+  userNav.append(title, settingsIcon, settingsIcon2, name,);
   dashboard.prepend(userNav);
 }
 function createHabits(habits) {
