@@ -7,7 +7,7 @@ async function getUserData() {
         }
     })
     console.log(response)
-    let data = await data.json();
+    let data = await response.json();
     console.log(data)
     
     if (!data) {
