@@ -230,7 +230,7 @@ leftArrow1.addEventListener("click", () => {
 userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
-const btn = document.querySelector('.btn-toggle');
+const btn = document.querySelector('.material-symbols-outlined');
 
 // btn.addEventListener('click', function() {
 //   document.body.classList.toggle('dark-theme');
