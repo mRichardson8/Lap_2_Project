@@ -17,6 +17,8 @@ async function checkStreaks(){
             Object.entries(each.habits).forEach(habit => {
                 if (habit[1].met){
                     met.push(habit[0])
+                } else{
+                    habit[1].streak = 0;
                 }
             })
             each.data.push({
