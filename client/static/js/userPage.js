@@ -241,29 +241,32 @@ const everything = [...document.querySelectorAll('*')];
 
 function darkMode() {
     everything.forEach(each => {
-        if (each.style.color === '#3decdd') {
+        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
             each.style.color = '#1c059f';
-        } else if (each.style.color === '#1c059f') {
+        } else if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(28, 5, 159)') {
             each.style.color = "#3decdd";
         }
-        if (each.style.backgroundColor === "#3decdd") {
+        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
             each.style.backgroundColor = '#1c059f';
     
-        } else if (each.style.backgroundColor === '#1c059f') {
+        } else if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(28, 5, 159)') {
             each.style.backgroundColor = "#3decdd";
         }
-        if (each.style.color === "#ffffff") {
+        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
             each.style.color = "#a3a2a2";
-        } else if (each.style.color === "#a3a2a2") {
+        } else if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(163, 162, 162)") {
             each.style.color = "#ffffff"
         }
-        if (each.style.backgroundColor === "#ffffff"){
+        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
             each.style.backgroundColor = '#a3a2a2';
-        } else if (each.style.backgroundColor === '#a3a2a2') {
+        } else if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(163, 162, 162)") {
             each.style.backgroundColor = "#ffffff";
         }
     })
 }
 
+document.querySelector('h1').addEventListener('click', () => {
+    darkMode();
+})
 
 
