@@ -155,18 +155,18 @@ async function updateHabits() {
 }
 
 let testHabits = {
-  createdBy: "62dfcb97433fa6ec72a53fc6",
-  data: [{}],
-  habits: {
-    exercise: { required: 30, streak: 5, met: false, current: 0 },
-    water: { required: 2000, streak: 2, met: true, current: 2500 },
-    sleep: { required: 8, streak: 0, met: false, current: 0 },
-  },
-  name: "Matthew Richardson",
-};
+    createdBy:"62dfcb97433fa6ec72a53fc6",
+     data:[{}],
+     habits : {
+         exercise:{required:30,streak:5, met: false, current: 0},
+         water:{required:2000,streak:2, met: true, current: 1900},
+         sleep:{required:8,streak:0, met: false, current: 0}
+     },
+     name: "Matthew Richardson",
+ }
 
-createUserDetails(testHabits.name);
-createHabits(testHabits.habits);
+createUserDetails(testHabits.name)
+createHabits(testHabits.habits)
 // getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
@@ -230,3 +230,8 @@ leftArrow1.addEventListener("click", () => {
 userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
+const btn = document.querySelector('.btn-toggle');
+btn.addEventListener('click', function() {
+  document.body.classList.toggle('dark-theme');
+  document.getElementsByClassName.toggle('dark-theme');
+})
