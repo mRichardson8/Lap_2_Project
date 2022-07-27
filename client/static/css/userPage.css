@@ -227,6 +227,11 @@
     border-radius: 10px;
   }
 
+  .chart {
+    width: 90vw;
+    margin: 2rem auto;
+  }
+
   /* #user-page-last {
         display: block;
     } */
