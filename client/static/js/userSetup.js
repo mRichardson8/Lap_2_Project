@@ -44,9 +44,11 @@ function createWaterDiv(data){
     let streak = document.createElement('p');
     streak.innerText = "Streak : " + data.streak;
     streak.setAttribute('class', 'habit-streak');
+    streak.setAttribute('id', "water-streak");
     let target = document.createElement('p');
     target.innerText = "Target : " + data.required + " ml";
     target.setAttribute('class', 'habit-target');
+    target.setAttribute('id', "water-target");
     let current = document.createElement('p');
     current.innerText = "Water drank today: " + data.current + " ml"; 
     current.setAttribute('class', 'habit-current');
@@ -70,6 +72,25 @@ function createWaterDiv(data){
             let inputSubmitBtn = document.createElement('button');
             inputSubmitBtn.textContent = "Add entry";
             inputSubmitBtn.addEventListener('click', () => {
+                let waterStreak = parseInt(document.getElementById('water-streak')
+                .innerText.split(" ")[2]);
+                let waterTarget = parseInt(document.getElementById('water-target')
+                .innerText.split(" ")[2]);
+                let waterCurrent = parseInt(document.getElementById('water-current')
+                .innerText.split(" ")[3]);
+                let newEntry = parseInt(inputNumber.value);
+                if (!newEntry) {
+                    alert("Please input a number to add an entry");
+                } else {
+                    let newSum = waterCurrent + newEntry;
+                    if (newSum >= waterTarget && waterCurrent >= waterTarget) {
+                        document.getElementById('water-current').textContent = 
+                        "Water drank today: " + newSum + " ml";
+                        inputDiv.remove();
+                    } else {
+                        
+                    }
+                }
                 inputDiv.remove();
             })
             let inputUndoBtn = document.createElement('button');
