@@ -110,38 +110,15 @@ async function sendHabits() {
   }
 }
 
-async function updateHabits() {
-  let data = await fetch("https://viva-pal.herokuapp.com/api/habits", {
+async function updateHabits(habit) {
+  let data = await fetch("https://viva-pal.herokuapp.com/api/updatehabit", {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + localStorage.token,
     },
     body: JSON.stringify({
       //make function to create habits object to send with only right habits
-      habits: {
-        //TODO this needs to be changed
-        water: {
-          current: parseInt(
-            document
-              .querySelector("#water-container .habit-current")
-              .innerText.split(" ")[3]
-          ),
-        },
-        exercise: {
-          current: parseInt(
-            document
-              .querySelector("#exercise-container .exercise-current")
-              .innerText.split(" ")[3]
-          ),
-        },
-        sleep: {
-          current: parseInt(
-            document
-              .querySelector("#sleep-container .sleep-current")
-              .innerText.split(" ")[4]
-          ),
-        },
-      },
+      habits: habit,
     }),
   });
   let response = await data.json();
@@ -165,9 +142,9 @@ let testHabits = {
      name: "Matthew Richardson",
  }
 
-createUserDetails(testHabits.name)
-createHabits(testHabits.habits)
-// getUserData();
+// createUserDetails(testHabits.name)
+// createHabits(testHabits.habits)
+getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign

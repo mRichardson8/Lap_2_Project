@@ -90,6 +90,9 @@ function createWaterDiv(data){
                     document.getElementById('water-current').textContent = 
                     "Water drank today: " + newSum + " ml";
                     inputDiv.remove();
+                    updateHabits({
+                      water: {current: newSum, streak: waterStreak, met: newSum >= waterTarget}
+                    });
     
                 }
                 inputDiv.remove();
@@ -168,6 +171,9 @@ function createExerciseDiv(data) {
                 document.getElementById('exercise-current').textContent = 
                 "Minutes exercised today: " + newSum + " minutes";
                 inputDiv.remove();
+                updateHabits({
+                  exercise: {current: newSum, streak: exerciseStreak, met: newSum >= exerciseTarget}
+                });
 
             }
             inputDiv.remove();
@@ -247,6 +253,9 @@ function createSleepDiv(data) {
                 document.getElementById('sleep-current').textContent = 
                 "Hours slept: " + newSum + " hours";
                 inputDiv.remove();
+                updateHabits({
+                  sleep: {current: newSum, streak: sleepStreak, met: newSum >= sleepTarget}
+                });
 
             }
             inputDiv.remove();
