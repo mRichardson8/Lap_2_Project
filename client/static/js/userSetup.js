@@ -9,14 +9,16 @@ function createUserDetails(user) {
   settingsIcon.setAttribute("class", "icons");
   let settingsIcon2 = document.createElement("p");
   settingsIcon2.innerHTML =
-  '<span class="material-symbols-outlined"> dark_mode </span>';
-  settingsIcon2.setAttribute("class", "icons2");
+  '<button><span class="material-symbols-outlined"> dark_mode </span></button>';
+  settingsIcon2.setAttribute("class", "btn-toggle");
   let name = document.createElement("p");
   name.innerText = user;
   name.setAttribute("class", "userName");
   userNav.append(title, settingsIcon, settingsIcon2, name,);
   dashboard.prepend(userNav);
 }
+
+
 function createHabits(habits) {
   let habitsDiv = document.getElementById("habits-container");
   if (habits.water) {
@@ -50,6 +52,7 @@ function createWaterDiv(data){
     current.setAttribute('class', 'habit-current');
     current.setAttribute('id', 'water-current')
     let addBtn = document.createElement('button');
+    addBtn.setAttribute('id', 'habit-button');
     addBtn.innerText = "+";
     addBtn.addEventListener('click', () => {
         let inputDiv = document.createElement('div');
@@ -103,8 +106,8 @@ function createExerciseDiv(data) {
   current.innerText = "Minutes exercised today: " + data.current + " mins";
   current.setAttribute("class", "habit-current");
   let addBtn = document.createElement("button");
+  addBtn.setAttribute('id', 'habit-button');
   addBtn.innerText = "+";
-
   div.append(title, streak, target, current, addBtn);
   return div;
 }
@@ -125,8 +128,8 @@ function createSleepDiv(data) {
   current.innerText = "Hours slept last night: " + data.current + " hrs";
   current.setAttribute("class", "habit-current");
   let addBtn = document.createElement("button");
+  addBtn.setAttribute('id', 'habit-button');
   addBtn.innerText = "+";
-
   div.append(title, streak, target, current, addBtn);
   return div;
 }
