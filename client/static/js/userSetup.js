@@ -121,9 +121,11 @@ function createExerciseDiv(data) {
   let streak = document.createElement("p");
   streak.innerText = "Streak : " + data.streak;
   streak.setAttribute("class", "habit-streak");
+  streak.setAttribute("id", "exercise-streak");
   let target = document.createElement("p");
-  target.innerText = "Target : " + data.required + " mins";
+  target.innerText = "Target : " + data.required + " minutes";
   target.setAttribute("class", "habit-target");
+  target.setAttribute('id', 'exercise-target')
   let current = document.createElement("p");
   current.innerText = "Minutes exercised today: " + data.current + " mins";
   current.setAttribute("class", "habit-current");
@@ -147,6 +149,27 @@ function createExerciseDiv(data) {
         let inputSubmitBtn = document.createElement('button');
         inputSubmitBtn.textContent = "Add entry";
         inputSubmitBtn.addEventListener('click', () => {
+            let exerciseStreak = parseInt(document.getElementById('exercise-streak')
+            .innerText.split(" ")[2]);
+            let exerciseTarget = parseInt(document.getElementById('exercise-target')
+            .innerText.split(" ")[2]);
+            let exerciseCurrent = parseInt(document.getElementById('exercise-current')
+            .innerText.split(" ")[3]);
+            let newEntry = parseInt(inputNumber.value);
+            if (!newEntry || newEntry <= 0) {
+                alert("Please input a positive number to add an entry");
+            } else {
+                let newSum = exerciseCurrent + newEntry;
+                if (exerciseCurrent < exerciseTarget && newSum >= exerciseTarget){
+                    exerciseStreak += 1;
+                    document.getElementById('exercise-streak')
+                    .innerText = "Streak : " + exerciseStreak;
+                }
+                document.getElementById('exercise-current').textContent = 
+                "Minutes exercised today: " + newSum + " minutes";
+                inputDiv.remove();
+
+            }
             inputDiv.remove();
         })
         let inputUndoBtn = document.createElement('button');
@@ -177,11 +200,13 @@ function createSleepDiv(data) {
   let streak = document.createElement("p");
   streak.innerText = "Streak : " + data.streak;
   streak.setAttribute("class", "habit-streak");
+  streak.setAttribute("id", "sleep-streak");
   let target = document.createElement("p");
-  target.innerText = "Target hours of sleep: " + data.required + " hrs";
+  target.innerText = "Target hours of sleep: " + data.required + " hours";
   target.setAttribute("class", "habit-target");
+  target.setAttribute("id", "sleep-target");
   let current = document.createElement("p");
-  current.innerText = "Hours slept last night: " + data.current + " hrs";
+  current.innerText = "Hours slept: " + data.current + " hours";
   current.setAttribute("class", "habit-current");
   current.setAttribute("id", "sleep-current")
   let addBtn = document.createElement("button");
@@ -203,6 +228,27 @@ function createSleepDiv(data) {
         let inputSubmitBtn = document.createElement('button');
         inputSubmitBtn.textContent = "Add entry";
         inputSubmitBtn.addEventListener('click', () => {
+            let sleepStreak = parseInt(document.getElementById('sleep-streak')
+            .innerText.split(" ")[2]);
+            let sleepTarget = parseInt(document.getElementById('sleep-target')
+            .innerText.split(" ")[4]);
+            let sleepCurrent = parseInt(document.getElementById('sleep-current')
+            .innerText.split(" ")[2]);
+            let newEntry = parseInt(inputNumber.value);
+            if (!newEntry || newEntry <= 0) {
+                alert("Please input a positive number to add an entry");
+            } else {
+                let newSum = sleepCurrent + newEntry;
+                if (sleepCurrent < sleepTarget && newSum >= sleepTarget){
+                    sleepStreak += 1;
+                    document.getElementById('sleep-streak')
+                    .innerText = "Streak : " + sleepStreak;
+                }
+                document.getElementById('sleep-current').textContent = 
+                "Hours slept: " + newSum + " minutes";
+                inputDiv.remove();
+
+            }
             inputDiv.remove();
         })
         let inputUndoBtn = document.createElement('button');
