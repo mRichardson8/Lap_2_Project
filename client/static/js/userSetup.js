@@ -44,8 +44,37 @@ function createWaterDiv(data){
     let current = document.createElement('p');
     current.innerText = "Water drank today: " + data.current + " ml"; 
     current.setAttribute('class', 'habit-current');
+    current.setAttribute('id', 'water-current')
     let addBtn = document.createElement('button');
     addBtn.innerText = "+";
+    addBtn.addEventListener('click', () => {
+        let inputDiv = document.createElement('div');
+        inputDiv.style.display = 'flex';
+        inputDiv.style.flexDirection = 'column';
+        let inputContainer = document.createElement('div');
+        inputContainer.style.display = 'flex';
+        let btnsContainer = document.createElement('div');
+        btnsContainer.style.display = 'flex';
+        let inputLabel = document.createElement('label');
+        inputLabel.textContent = 'Water consumed:';
+        let inputNumber = document.createElement('input');
+        inputNumber.setAttribute('type', 'number');
+        let inputSubmitBtn = document.createElement('button');
+        inputSubmitBtn.textContent = "Add entry";
+        inputSubmitBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        let inputUndoBtn = document.createElement('button');
+        inputUndoBtn.textContent = 'Undo';
+        inputUndoBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        inputContainer.appendChild(inputLabel, inputNumber);
+        btnsContainer.appendChild(inputUndoBtn, inputSubmitBtn);
+        inputDiv.appendChild(inputContainer, btnsContainer);
+        document.getElementById('water-current').parentNode
+        .insertBefore(inputDiv, document.getElementById('water-current').nextSibling);
+    })
 
     div.append(title, streak, target, current, addBtn);
     return div
