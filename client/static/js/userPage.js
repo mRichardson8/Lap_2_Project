@@ -115,6 +115,7 @@ async function updateHabits(habit) {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + localStorage.token,
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       //make function to create habits object to send with only right habits
