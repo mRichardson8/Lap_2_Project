@@ -196,6 +196,7 @@ signUpSubmitBtn.addEventListener('click', (e) => {
         .then(data => {
             localStorage.setItem('token', data.token)
             const payload = jwt_decode(data.token);
+            localStorage.setItem('name', payload.name);
             localStorage.setItem('email', payload.email)
             localStorage.setItem('userId', payload.userId)
             window.location.pathname = '/static/userPage.html';
