@@ -91,7 +91,7 @@ function createWaterDiv(data){
                     "Water drank today: " + newSum + " ml";
                     inputDiv.remove();
                     updateHabits({
-                      water: {current: newSum, streak: waterStreak, met: newSum >= waterTarget}
+                      "habits.water" : {required: waterTarget, current: newSum, streak: waterStreak, met: newSum >= waterTarget}
                     });
     
                 }
@@ -172,7 +172,7 @@ function createExerciseDiv(data) {
                 "Minutes exercised today: " + newSum + " minutes";
                 inputDiv.remove();
                 updateHabits({
-                  exercise: {current: newSum, streak: exerciseStreak, met: newSum >= exerciseTarget}
+                  "habits.exercise" : {required: exerciseTarget, current: newSum, streak: exerciseStreak, met: newSum >= exerciseTarget}
                 });
 
             }
@@ -254,7 +254,7 @@ function createSleepDiv(data) {
                 "Hours slept: " + newSum + " hours";
                 inputDiv.remove();
                 updateHabits({
-                  sleep: {current: newSum, streak: sleepStreak, met: newSum >= sleepTarget}
+                  "habits.sleep" : {required: sleepTarget, current: newSum, streak: sleepStreak, met: newSum >= sleepTarget}
                 });
 
             }

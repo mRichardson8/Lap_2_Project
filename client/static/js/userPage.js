@@ -110,7 +110,7 @@ async function sendHabits() {
   }
 }
 
-async function updateHabits(habit) {
+async function updateHabits(habitParam) {
   let data = await fetch("https://viva-pal.herokuapp.com/api/updatehabit", {
     method: "PATCH",
     headers: {
@@ -119,7 +119,7 @@ async function updateHabits(habit) {
     },
     body: JSON.stringify({
       //make function to create habits object to send with only right habits
-      habits: habit,
+      habitParam
     }),
   });
   let response = await data.json();
