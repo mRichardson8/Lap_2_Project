@@ -240,7 +240,6 @@ const everything = [...document.querySelectorAll('*')];
 
 
 function darkMode() {
-    console.log(btn.textContent);
     everything.forEach(each => {
         if (each.style.color === '#3decdd') {
             each.style.color = '#1c059f';
