@@ -31,6 +31,25 @@ async function sendHabits(){
         habits : habits,
         data : []
     }
+
+    let response = await fetch('https://viva-pal.herokuapp.com/api/createhabit', {
+        method: 'POST',
+        headers: {
+            "authorization": "Bearer " + localStorage.token,
+        },
+        body: JSON.stringify(habitObj)
+    })
+
+    console.log(response);
+    
+    if (response.status === 201) {
+        let data = await response.json();
+        console.log(data);
+        createUserDetails(data.name);
+        createHabits(data.habits);
+        document.getElementById('user-page-create-habits-container').style.display = "none";
+        
+    }
 }
 
 async function updateHabits(){
@@ -84,6 +103,7 @@ const leftArrow1 = document.getElementById('left-arrow-1');
 const userPageSections = [...document.querySelectorAll('.user-page-section')];
 const userPageSelectContainers = [...document.querySelectorAll('.user-page-select-container')];
 const nextButtons = [...document.querySelectorAll('.user-page-next-button')];
+const userPageSubmitBtn = document.getElementById('user-page-submit-button');
 
 function nextSection() {
     let checkCounter = 0;
@@ -128,6 +148,11 @@ nextButton1.addEventListener('click', () => {
 
 leftArrow1.addEventListener('click', () => {
     previousSection();
+})
+
+userPageSubmitBtn.addEventListener('click', () => {
+    sendHabits();
+    
 })
 
 
