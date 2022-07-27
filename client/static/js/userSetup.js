@@ -3,27 +3,12 @@ function createUserDetails(user) {
   let userNav = document.createElement("div");
   userNav.setAttribute("class", "user-nav");
   let title = document.createElement("h1");
-<<<<<<< HEAD
-  title.textContent = "VivaPal";
-  let settingsIcon = document.createElement("p");
-  settingsIcon.innerHTML = '<i class="fa-solid fa-user-gear"></i>';
-  settingsIcon.setAttribute("class", "icons");
-  let settingsIcon2 = document.createElement("p");
-  settingsIcon2.innerHTML =
-  '<span class="material-symbols-outlined"> dark_mode </span>';
-  settingsIcon2.setAttribute("class", "icons2");
-  let name = document.createElement("p");
-  name.innerText = user;
-  name.setAttribute("class", "userName");
-  userNav.append(title, settingsIcon, settingsIcon2, name,);
-=======
   title.textContent = "Vivapal";
   let name = document.createElement("p");
   name.innerText = user;
   let settingsIcon = document.createElement("p");
   settingsIcon.innerHTML = '<i class="fa-solid fa-user-gear"></i>';
   userNav.append(title, name, settingsIcon);
->>>>>>> 8f388dd76c59f518307d06926b190afcc9c62f91
   dashboard.prepend(userNav);
 }
 function createHabits(habits) {
@@ -42,25 +27,6 @@ function createHabits(habits) {
   }
 }
 
-<<<<<<< HEAD
-function createWaterDiv(data) {
-  let div = document.createElement("div");
-  div.setAttribute("id", "water-container");
-  div.setAttribute("class", "habit-container");
-  let title = document.createElement("h3");
-  title.innerText = "Water Intake";
-  let streak = document.createElement("p");
-  streak.innerText = "Streak : " + data.streak;
-  streak.setAttribute("class", "habit-streak");
-  let target = document.createElement("p");
-  target.innerText = "Target : " + data.required + " ml";
-  target.setAttribute("class", "habit-target");
-  let current = document.createElement("p");
-  current.innerText = "Water drank today: " + data.current + " ml";
-  current.setAttribute("class", "habit-current");
-  let addBtn = document.createElement("button");
-  addBtn.innerText = "+";
-=======
 function createWaterDiv(data){
     let div = document.createElement('div');
     div.setAttribute('id', 'water-container');
@@ -110,7 +76,6 @@ function createWaterDiv(data){
         document.getElementById('water-current').parentNode
         .insertBefore(inputDiv, document.getElementById('water-current').nextSibling);
     })
->>>>>>> 8f388dd76c59f518307d06926b190afcc9c62f91
 
   div.append(title, streak, target, current, addBtn);
   return div;
@@ -159,8 +124,6 @@ function createSleepDiv(data) {
   div.append(title, streak, target, current, addBtn);
   return div;
 }
-<<<<<<< HEAD
-=======
 
 const ctx = document.getElementById("myChart").getContext("2d");
 
@@ -195,4 +158,3 @@ function createChart(habitData) {
   };
   const myChart = new Chart(ctx, config);
 }
->>>>>>> 8f388dd76c59f518307d06926b190afcc9c62f91
