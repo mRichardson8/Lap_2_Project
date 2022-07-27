@@ -10,6 +10,7 @@ async function getUserData() {
     if (!response.habit) {
         document.getElementById('user-page-create-habits-container').style.display = 'flex';
     }else{
+        console.log(response.habits);
         createHabits(response.habits);
     }
 }
