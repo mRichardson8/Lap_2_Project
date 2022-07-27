@@ -87,7 +87,7 @@ let testHabits = {
      data:[{}],
      habits : {
          exercise:{required:30,streak:5, met: false, current: 0},
-         water:{required:2000,streak:2, met: true, current: 2500},
+         water:{required:2000,streak:2, met: true, current: 1900},
          sleep:{required:8,streak:0, met: false, current: 0}
      },
      name: "Matthew Richardson",

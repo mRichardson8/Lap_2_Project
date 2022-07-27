@@ -79,17 +79,18 @@ function createWaterDiv(data){
                 let waterCurrent = parseInt(document.getElementById('water-current')
                 .innerText.split(" ")[3]);
                 let newEntry = parseInt(inputNumber.value);
-                if (!newEntry) {
-                    alert("Please input a number to add an entry");
+                if (!newEntry || newEntry <= 0) {
+                    alert("Please input a positive number to add an entry");
                 } else {
                     let newSum = waterCurrent + newEntry;
-                    if (newSum >= waterTarget && waterCurrent >= waterTarget) {
-                        document.getElementById('water-current').textContent = 
-                        "Water drank today: " + newSum + " ml";
-                        inputDiv.remove();
-                    } else {
-                        
+                    if (waterCurrent < waterTarget && newSum >= waterTarget){
+                      waterStreak += 1;
+                      document.getElementById('water-streak').innerText = "Streak : " + waterStreak;
                     }
+                    document.getElementById('water-current').textContent = 
+                    "Water drank today: " + newSum + " ml";
+                    inputDiv.remove();
+    
                 }
                 inputDiv.remove();
             })
