@@ -1,16 +1,21 @@
 async function getUserData() {
 
-    let data = await fetch('https://viva-pal.herokuapp.com/api/habits', {
+    let response = await fetch('https://viva-pal.herokuapp.com/api/habits', {
         method: "GET",
         headers: {
              "Authorization": "Bearer " + localStorage.token,
         }
     })
-    let response = await data.json();
-    if (!response.habit) {
+    console.log(response)
+    let data = await response.json();
+    console.log(data)
+    
+    if (!data) {
         document.getElementById('user-page-create-habits-container').style.display = 'flex';
     }else{
-        createHabits(response.habits);
+        console.log(data.habits);
+        createUserDetails(data.name);
+        createHabits(data.habits);
     }
 }
 
