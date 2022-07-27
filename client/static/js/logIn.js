@@ -36,4 +36,5 @@ function fix_autocomplete() {
         }
     }, 10);
 }
+
 $('.form-control').on('input', fix_autocomplete);
