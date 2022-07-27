@@ -75,6 +75,14 @@
         font-size: 1rem;
     }
 
+    .log-in-input:-webkit-autofill, .log-in-input:autofill {
+        font-size: 1rem;
+        font-family: 'Poppins';
+        -webkit-text-fill-color: var(--blue-theme);
+        -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        transition: background-color 5000s ease-in-out 0s;
+    }
+
     .log-in-input:focus {
         outline: none;
     }
@@ -93,6 +101,12 @@
         border: 1px solid var(--blue-theme);
         margin-top: 1rem;
     }
+
+    .log-in-btn:hover {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
     .fa-arrow-left{
         color: white;
         font-size: 2rem;
