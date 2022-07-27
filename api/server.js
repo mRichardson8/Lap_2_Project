@@ -2,6 +2,7 @@ const express = require("express");
 const server = express();
 const cors = require("cors");
 
+const streak = require('./streak-config')
 const connectDB = require("./db/connect");
 const authRouter = require("./routes/auth");
 const habitRouter = require("./routes/habit");
