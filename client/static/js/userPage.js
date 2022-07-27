@@ -122,13 +122,7 @@ async function updateHabits(habit) {
     }),
   });
   let response = await data.json();
-  if (!response.habit) {
-    document.getElementById("user-page-create-habits-container").style.display =
-      "flex";
-  } else {
-    createUserDetails(response.name);
-    createHabits(response.habits);
-  }
+  console.log(response.status)
 }
 
 let testHabits = {
