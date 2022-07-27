@@ -67,12 +67,9 @@ function createWaterDiv(data){
         inputUndoBtn.addEventListener('click', () => {
             inputDiv.remove();
         })
-        inputContainer.appendChild(inputLabel);
-        inputContainer.appendChild(inputNumber);
-        btnsContainer.appendChild(inputUndoBtn);
-        btnsContainer.appendChild(inputSubmitBtn);
-        inputDiv.appendChild(inputContainer);
-        inputDiv.appendChild(btnsContainer);
+        inputContainer.append(inputLabel, inputNumber);
+        btnsContainer.append(inputUndoBtn, inputSubmitBtn);
+        inputDiv.append(inputContainer, btnsContainer);
         document.getElementById('water-current').parentNode
         .insertBefore(inputDiv, document.getElementById('water-current').nextSibling);
     })
