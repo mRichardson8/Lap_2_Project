@@ -1,194 +1,247 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css");
 
 * {
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
 @media screen and (min-width: 0px) {
+  :root {
+    --blue-theme: #3decdd;
+  }
 
-    :root {
-        --blue-theme: #3decdd;
-    }
-    
-    body {
-        margin: 0px;
-        max-width: 100vw;
-        min-height: 100vh;
-    }
+  body {
+    margin: 0px;
+    max-width: 100vw;
+    min-height: 100vh;
+  }
 
-    * {
-        box-sizing: border-box;
-    }
-    
+  * {
+    box-sizing: border-box;
+  }
 
-    #user-page-create-habits-container {
-        min-height: 100vh;
-        display: none;
-        flex-direction: column;
-        width: 100%;
-        box-sizing: border-box;
-    }
+  #user-page-create-habits-container {
+    min-height: 100vh;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
-    #user-page-first {
-        display: flex;
-        flex-direction: column;
-    }
+  #user-page-first {
+    display: flex;
+    flex-direction: column;
+  }
 
-    #user-page-second {
-        display: none;
-    }
+  #user-page-second {
+    display: none;
+  }
 
-    .user-page-navbar {
-        display: flex;
-        align-items: center;
-        background-color: var(--blue-theme);
-        height: 50px;
-        padding: 0 1rem;
-        box-sizing: border-box;
-        width: 100%;
-    }
+  .user-page-navbar {
+    display: flex;
+    align-items: center;
+    background-color: var(--blue-theme);
+    height: 50px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
 
+  .fa-arrow-left,
+  .fa-arrow-right {
+    color: white;
+    font-size: 2rem;
+  }
 
+  .fa-arrow-left,
+  .fa-arrow-right {
+    cursor: pointer;
+  }
 
-    .fa-arrow-left, .fa-arrow-right {
-        color: white;
-        font-size: 2rem;
-    }
+  .user-page-h2 {
+    margin: auto;
+    color: white;
+    font-family: "Poppins";
+    font-size: 2rem;
+  }
 
-    .fa-arrow-left, .fa-arrow-right {
-        cursor: pointer;
-    }
+  .user-page-details {
+    background-color: white;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    right: 10%;
+    padding-bottom: 2rem;
+  }
 
-    .user-page-h2 {
-        margin: auto;
-        color: white;
-        font-family: 'Poppins';
-        font-size: 2rem;
-        
-    }
+  .user-page-h3 {
+    text-align: center;
+    color: var(--blue-theme);
+    font-family: "Poppins";
+    font-size: 2rem;
+  }
 
-    .user-page-details {
-        background-color: white;
-        max-width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        position: absolute;
-        top: 10%;
-        left: 10%;
-        right: 10%;
-        padding-bottom: 2rem;
-    }
+  .user-page-checkbox-container {
+    margin: 1rem 0px;
+    height: 50px;
+    width: 250px;
+  }
 
-    .user-page-h3 {
-        text-align: center;
-        color: var(--blue-theme);
-        font-family: 'Poppins';
-        font-size: 2rem;
+  .user-page-checkbox {
+    display: none;
+  }
 
-    }
+  .user-page-checkbox:checked + label {
+    color: var(--blue-theme);
+    background-color: white;
+    border: 1px solid var(--blue-theme);
+  }
 
-    .user-page-checkbox-container {
-        margin: 1rem 0px;
-        height: 50px;
-        width: 250px;
-    }
+  .user-page-checkbox-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--blue-theme);
+    color: white;
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    height: 50px;
+    width: 250px;
+    border-radius: 15px;
+    border: none;
+    margin: 1rem 0;
+  }
 
-    .user-page-checkbox {
-       display: none;
-    }
+  .user-page-checkbox-label:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 
-    .user-page-checkbox:checked + label {
-        color: var(--blue-theme);
-        background-color: white;
-        border: 1px solid var(--blue-theme);
-    }
+  .user-page-next-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: var(--blue-theme);
+    font-family: "Poppins";
+    font-size: 1.5rem;
+    height: 50px;
+    width: 250px;
+    border-radius: 15px;
+    border: 1px solid var(--blue-theme);
+    margin-top: 2rem;
+  }
 
-    .user-page-checkbox-label {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: var(--blue-theme);
-        color: white;
-        font-family: 'Poppins';
-        font-size: 1.5rem;
-        height: 50px;
-        width: 250px;
-        border-radius: 15px;
-        border: none;
-        margin: 1rem 0;
-    }
+  .user-page-next-button:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
 
-    .user-page-checkbox-label:hover {
-        cursor: pointer;
-        text-decoration: underline;
-    }
+  .user-page-select-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin: 1rem 0;
+  }
 
-    .user-page-next-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: white;
-        color: var(--blue-theme);
-        font-family: 'Poppins';
-        font-size: 1.5rem;
-        height: 50px;
-        width: 250px;
-        border-radius: 15px;
-        border: 1px solid var(--blue-theme);
-        margin-top: 2rem;
-    }
+  .user-page-goal-label {
+    color: var(--blue-theme);
+    font-family: "Poppins";
+    font-size: 18px;
+  }
 
-    .user-page-next-button:hover {
-        cursor: pointer;
-        text-decoration: underline;
-    }
+  .user-page-select-goal {
+    font-family: "Poppins";
+    border-radius: 15px;
+    padding: 0.3rem;
+    margin-top: 0.3rem;
+    text-align: center;
+  }
 
-    .user-page-select-container {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        margin: 1rem 0;
-    }
+  .user-page-select-goal:focus {
+    outline: none;
+  }
 
-    .user-page-goal-label {
-        color: var(--blue-theme);
-        font-family: 'Poppins';
-        font-size: 18px;
-    }
+  #user-page-dashboard {
+    font-family: poppins;
+    color: var(--blue-theme);
+  }
 
-    .user-page-select-goal {
-        font-family: 'Poppins';
-        border-radius: 15px;
-        padding: 0.3rem;
-        margin-top: 0.3rem;
-        text-align: center;
-    }
+  #user-page-dashboard h1 {
+    background-color: var(--blue-theme);
+    color: white;
+    margin: 0px;
+    text-align: center;
+  }
 
-    .user-page-select-goal:focus {
-        outline: none;
-    }
+  .icons {
+    text-align: start;
+    float: left;
+    padding-left: 30px;
+  }
 
+  .icons2 {
+    text-align: end;
+    padding-right: 30px;
+  }
 
+  .userName {
+    border-top: 1px solid var(--blue-theme);
+    padding-top: 16px;
+    margin-top: 0px;
+    text-align: center;
+  }
 
-    /* #user-page-last {
+  #user-page-dashboard h3 {
+    text-align: center;
+  }
+
+  .habit-streak,
+  .habit-target,
+  .habit-current {
+    text-align: center;
+  }
+
+  #user-page-dashboard button {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--blue-theme);
+    color: white;
+  }
+
+  #user-page-dashboard button:focus,
+  #user-page-dashboard button:hover {
+    color: var(--blue-theme);
+    background-color: white;
+  }
+
+  #water-container,
+  #exercise-container,
+  #sleep-container {
+    border-radius: 10px;
+  }
+
+  /* #user-page-last {
         display: block;
     } */
 
-    /* #user-page-last-h2 {
+  /* #user-page-last-h2 {
         margin: auto;
     } */
 
-    /* #user-page-details-form {
+  /* #user-page-details-form {
         display: flex;
         flex-direction: column;
         align-items: center;
     } */
 
-    /* .user-page-details-input {
+  /* .user-page-details-input {
         width: 300px;
         border-top: none;
         border-right: none;
@@ -200,28 +253,28 @@
         font-size: 1rem;
     } */
 
-    /* .user-page-details-input:focus {
+  /* .user-page-details-input:focus {
         outline: none;
     } */
 
-    /* .user-page-details-input::placeholder {
+  /* .user-page-details-input::placeholder {
         color: var(--blue-theme);
     }  */
 
-    /* .user-page-error-message {
+  /* .user-page-error-message {
         font-family: 'Poppins';
         color: var(--blue-theme);
         font-size: 0.75rem;
         max-width: 300px;
         display: none;
     } */
-     
-    /* #user-page-terms {
+
+  /* #user-page-terms {
         font-family: 'Poppins';
         max-width: 300px;
     } */
 
-    /* #user-page-submit-button {
+  /* #user-page-submit-button {
         display: block;
         justify-content: center;
         align-items: center;
@@ -236,7 +289,7 @@
         margin-top: 1rem;
     } */
 
-    /* #user-page-submit-button:hover {
+  /* #user-page-submit-button:hover {
         text-decoration: underline;
         cursor: pointer;
     } */

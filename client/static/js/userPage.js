@@ -88,9 +88,9 @@ let testHabits = {
      name: "Matthew Richardson",
  }
 
-// createUserDetails(testHabits.name)
-// createHabits(testHabits.habits)
-getUserData();
+createUserDetails(testHabits.name)
+createHabits(testHabits.habits)
+// getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
