@@ -16,6 +16,8 @@ logInBtn.addEventListener('click', async (e) => {
         localStorage.setItem('token', tokenData.token)
         const payload = jwt_decode(tokenData.token);
         localStorage.setItem('email', payload.email)
+        localStorage.setItem('userId', payload.userId);
+        localStorage.setItem('name', payload.name);
         window.location.pathname = '/static/userPage.html';
 
     } catch (err){
