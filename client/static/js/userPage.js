@@ -230,7 +230,6 @@ leftArrow1.addEventListener("click", () => {
 userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
-const btn = document.querySelector('.btn-toggle button');
 
 // btn.addEventListener('click', function() {
 //   document.body.classList.toggle('dark-theme');
@@ -268,7 +267,4 @@ function darkMode() {
 }
 
 
-btn.addEventListener('click', () => {
-    darkMode();
-})
 
