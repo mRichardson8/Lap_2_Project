@@ -245,7 +245,7 @@ function createSleepDiv(data) {
                     .innerText = "Streak : " + sleepStreak;
                 }
                 document.getElementById('sleep-current').textContent = 
-                "Hours slept: " + newSum + " minutes";
+                "Hours slept: " + newSum + " hours";
                 inputDiv.remove();
 
             }
