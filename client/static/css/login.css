@@ -78,13 +78,22 @@
     .log-in-input:-webkit-autofill, .log-in-input:autofill {
         font-size: 1rem;
         font-family: 'Poppins';
-        -webkit-text-fill-color: var(--blue-theme);
-        -webkit-box-shadow: 0 0 0px 1000px #000 inset;
+        color: var(--blue-theme);
+        -webkit-text-fill-color: transparent;
         transition: background-color 5000s ease-in-out 0s;
+    }
+
+    @keyframes autofill {
+        to {
+            color: var(--blue-theme);
+            background: transparent;
+        }
     }
 
     .log-in-input:focus {
         outline: none;
+        animation-name: autofill;
+        animation-fill-mode: both;
     }
 
     .log-in-btn {
