@@ -265,8 +265,6 @@ function darkMode() {
     })
 }
 
-document.querySelector('h1').addEventListener('click', () => {
-    darkMode();
-})
+
 
 

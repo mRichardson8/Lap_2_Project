@@ -1,14 +1,6 @@
 // This next block of code relates to form validation where the user inputs info like
 // email, name, password etc. 
 
-const everything = [...document.querySelectorAll('*')];
-
-for (let each of everything) {
-    console.log(window.getComputedStyle(each).getPropertyValue('color'));
-    console.log(window.getComputedStyle(each).getPropertyValue('background-color'));
-}
-
-
 const nameInput = document.getElementById('sign-up-name-input');
 const emailInput = document.getElementById('sign-up-email-input');
 const passwordInput = document.getElementById('sign-up-password');
