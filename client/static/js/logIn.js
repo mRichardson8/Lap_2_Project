@@ -25,3 +25,15 @@ logInBtn.addEventListener('click', async (e) => {
     }
     
 })
+
+// Fix autocomplete
+function fix_autocomplete() {
+    setTimeout(() => {
+        if ($(this).is(':-internal-autofill-selected')) {
+            var clone = $(this).clone(true, true);
+            $(this).after(clone);
+            $(this).remove();
+        }
+    }, 10);
+}
+$('.form-control').on('input', fix_autocomplete);
