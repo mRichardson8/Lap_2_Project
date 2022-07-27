@@ -14,23 +14,64 @@ async function getUserData() {
     }
 }
 
-function createHabits(habits) {
-    let habitsDiv = document.getElementById('habits-container');
-    if(habits.water){
-        waterDiv = createWaterDiv(habits.water);
-        habitsDiv.append(waterDiv);
+async function sendHabits(){
+    let habits = {}
+    if (document.getElementById('exercise-check').checked){
+        habits.exercise = { required : document.getElementById('exercise-goal').value,streak:0,current:0,met:false}
+    };
+    if (document.getElementById('water-check').checked){
+        habits.water = { required : document.getElementById('water-goal').value,streak:0,current:0,met:false}
+    };
+    if (document.getElementById('sleep-check').checked){
+        habits.sleep = { required : document.getElementById('sleep-goal').value,streak:0,current:0,met:false}
+    };
+    let habitObj = {
+        name: localStorage.name,
+        createdBy: localStorage.userId,
+        habits : habits,
+        data : []
     }
-    if (habits.sleep){
-        sleepDiv = createSleepDiv(habits.sleep);
-        habitsDiv.append(sleepDiv);
-    }
-    if (habits.exercise){
-        exerciseDiv = createExerciseDiv(habits.exercise);
-        habitsDiv.append(exerciseDiv);
-    }
-
 }
+
+async function updateHabits(){
+    let data = await fetch('https://viva-pal.herokuapp.com/api/habits', {
+        method: "PATCH",
+        headers: {
+             "Authorization": "Bearer " + localStorage.token,
+        },
+        body: JSON.stringify({ //make function to create habits object to send with only right habits
+            habits : { //TODO this needs to be changed
+                water : {current: parseInt(document.querySelector('#water-container .habit-current').innerText.split(' ')[3])},
+                exercise : {current: parseInt(document.querySelector('#exercise-container .exercise-current').innerText.split(' ')[3])},
+                sleep: {current: parseInt(document.querySelector('#sleep-container .sleep-current').innerText.split(' ')[4])},
+            }
+        })
+    })
+    let response = await data.json();
+    if (!response.habit) {
+        document.getElementById('user-page-create-habits-container').style.display = 'flex';
+    }else{
+        createUserDetails(response.name);
+        createHabits(response.habits);
+    }
+}
+
+
+let testHabits = {
+    createdBy: "62dfcb97433fa6ec72a53fc6",
+     data: [{}],
+     habits : {
+         exercise:{required:30,streak:5, met: false, current: 0},
+         water:{required:2000,streak:2, met: true, current: 2500},
+         sleep:{required:8,streak:0, met: false, current: 0}
+     },
+     name: "Matthew Richardson",
+ }
+
+// createUserDetails(testHabits.name)
+// createHabits(testHabits.habits)
 getUserData();
+// document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
 // up process and also go back to previous sections.
