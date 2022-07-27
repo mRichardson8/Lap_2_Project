@@ -14,7 +14,7 @@ function createUserDetails(user) {
   let name = document.createElement("p");
   name.innerText = user;
   name.setAttribute("class", "userName");
-  userNav.append(title, settingsIcon, settingsIcon2, name,);
+  userNav.append(title, settingsIcon, settingsIcon2, name);
   dashboard.prepend(userNav);
 }
 
@@ -268,27 +268,27 @@ function createSleepDiv(data) {
   return div;
 }
 
-const ctx = document.getElementById("myChart").getContext("2d");
-
-function createChart(habitData) {
+function createChart(dataHabit) {
+  const ctx = document.getElementById("myChart").getContext("2d");
   // what goes on the x axis
-  const labels = [];
+  const labels = dataHabit.map((d) => d.date);
+  //   const goals = Object.keys(dataHabit).length;
   const data = {
     labels,
     datasets: [
       {
-        label: 'Goals',
-        backgroundColor: "red",
+        label: "Water",
+        backgroundColor: "#3decdd",
         borderColor: "rgb(255, 99, 132)",
         // points on the bar chart where we put the actual data we need
-        data: habitData,
+        data: [20, 30, 45],
       },
       {
-        label: "Accomplished",
+        label: "Sleep",
         backgroundColor: "blue",
         borderColor: "rgb(255, 99, 132)",
         // points on the bar chart where we put the actual data we need,
-        data: habitData,
+        data: [20, 30, 45].reverse(),
       },
     ],
   };
@@ -296,8 +296,17 @@ function createChart(habitData) {
     type: "bar",
     data: data,
     options: {
-      responsive: true,
+      scales: {
+        x: {
+          stacked: true,
+        },
+        y: {
+          stacked: true,
+        },
+      },
     },
   };
   const myChart = new Chart(ctx, config);
 }
+
+// createChart();

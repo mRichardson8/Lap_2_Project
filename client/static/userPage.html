@@ -6,13 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/userPage.css" />
     <link rel="stylesheet" href="./css/habits.css" />
-    <script src="./js/userSetup.js"></script>
+    <script src="./js/userSetup.js" defer></script>
     <script src="./js/userPage.js" type="text/javascript" defer></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,0"
+    />
     <title>Dashboard</title>
   </head>
   <body class="dark-theme">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <div id="user-page-create-habits-container">
       <div id="user-page-first" class="user-page-section">
         <div class="user-page-navbar">
@@ -125,6 +127,12 @@
       <div class="chart">
         <canvas id="myChart"></canvas>
       </div>
+      <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.8.2/chart.min.js"
+        integrity="sha512-zjlf0U0eJmSo1Le4/zcZI51ks5SjuQXkU0yOdsOBubjSmio9iCUp8XPLkEAADZNBdR9crRy3cniZ65LF2w8sRA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+      ></script>
     </div>
   </body>
 </html>

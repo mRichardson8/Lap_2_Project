@@ -232,6 +232,11 @@
     border-radius: 10px;
   }
 
+  .chart {
+    width: 90vw;
+    margin: 2rem auto;
+  }
+
   .dark-theme {
     background: #313131;
   }
