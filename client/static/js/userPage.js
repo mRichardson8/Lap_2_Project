@@ -79,8 +79,8 @@ async function updateHabits(){
 
 
 let testHabits = {
-    createdBy: "62dfcb97433fa6ec72a53fc6",
-     data: [{}],
+    createdBy:"62dfcb97433fa6ec72a53fc6",
+     data:[{}],
      habits : {
          exercise:{required:30,streak:5, met: false, current: 0},
          water:{required:2000,streak:2, met: true, current: 2500},
