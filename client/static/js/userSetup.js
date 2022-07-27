@@ -3,6 +3,7 @@ function createUserDetails(user) {
   let userNav = document.createElement("div");
   userNav.setAttribute("class", "user-nav");
   let title = document.createElement("h1");
+<<<<<<< HEAD
   title.textContent = "VivaPal";
   let settingsIcon = document.createElement("p");
   settingsIcon.innerHTML = '<i class="fa-solid fa-user-gear"></i>';
@@ -15,6 +16,14 @@ function createUserDetails(user) {
   name.innerText = user;
   name.setAttribute("class", "userName");
   userNav.append(title, settingsIcon, settingsIcon2, name,);
+=======
+  title.textContent = "Vivapal";
+  let name = document.createElement("p");
+  name.innerText = user;
+  let settingsIcon = document.createElement("p");
+  settingsIcon.innerHTML = '<i class="fa-solid fa-user-gear"></i>';
+  userNav.append(title, name, settingsIcon);
+>>>>>>> 8f388dd76c59f518307d06926b190afcc9c62f91
   dashboard.prepend(userNav);
 }
 function createHabits(habits) {
@@ -33,6 +42,7 @@ function createHabits(habits) {
   }
 }
 
+<<<<<<< HEAD
 function createWaterDiv(data) {
   let div = document.createElement("div");
   div.setAttribute("id", "water-container");
@@ -50,6 +60,57 @@ function createWaterDiv(data) {
   current.setAttribute("class", "habit-current");
   let addBtn = document.createElement("button");
   addBtn.innerText = "+";
+=======
+function createWaterDiv(data){
+    let div = document.createElement('div');
+    div.setAttribute('id', 'water-container');
+    div.setAttribute('class', 'habit-container');
+    let title = document.createElement('h3');
+    title.innerText = "Water Intake";
+    let streak = document.createElement('p');
+    streak.innerText = "Streak : " + data.streak;
+    streak.setAttribute('class', 'habit-streak');
+    let target = document.createElement('p');
+    target.innerText = "Target : " + data.required + " ml";
+    target.setAttribute('class', 'habit-target');
+    let current = document.createElement('p');
+    current.innerText = "Water drank today: " + data.current + " ml"; 
+    current.setAttribute('class', 'habit-current');
+    current.setAttribute('id', 'water-current')
+    let addBtn = document.createElement('button');
+    addBtn.innerText = "+";
+    addBtn.addEventListener('click', () => {
+        let inputDiv = document.createElement('div');
+        inputDiv.style.display = 'flex';
+        inputDiv.style.flexDirection = 'column';
+        let inputContainer = document.createElement('div');
+        inputContainer.style.display = 'flex';
+        let btnsContainer = document.createElement('div');
+        btnsContainer.style.display = 'flex';
+        let inputLabel = document.createElement('label');
+        inputLabel.textContent = 'Water consumed:';
+        let inputNumber = document.createElement('input');
+        inputNumber.setAttribute('type', 'number');
+        let inputSubmitBtn = document.createElement('button');
+        inputSubmitBtn.textContent = "Add entry";
+        inputSubmitBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        let inputUndoBtn = document.createElement('button');
+        inputUndoBtn.textContent = 'Undo';
+        inputUndoBtn.addEventListener('click', () => {
+            inputDiv.remove();
+        })
+        inputContainer.appendChild(inputLabel);
+        inputContainer.appendChild(inputNumber);
+        btnsContainer.appendChild(inputUndoBtn);
+        btnsContainer.appendChild(inputSubmitBtn);
+        inputDiv.appendChild(inputContainer);
+        inputDiv.appendChild(btnsContainer);
+        document.getElementById('water-current').parentNode
+        .insertBefore(inputDiv, document.getElementById('water-current').nextSibling);
+    })
+>>>>>>> 8f388dd76c59f518307d06926b190afcc9c62f91
 
   div.append(title, streak, target, current, addBtn);
   return div;
@@ -98,3 +159,40 @@ function createSleepDiv(data) {
   div.append(title, streak, target, current, addBtn);
   return div;
 }
+<<<<<<< HEAD
+=======
+
+const ctx = document.getElementById("myChart").getContext("2d");
+
+function createChart(habitData) {
+  // what goes on the x axis
+  const labels = [];
+  const data = {
+    labels,
+    datasets: [
+      {
+        label: 'Goals',
+        backgroundColor: "red",
+        borderColor: "rgb(255, 99, 132)",
+        // points on the bar chart where we put the actual data we need
+        data: habitData,
+      },
+      {
+        label: "Accomplished",
+        backgroundColor: "blue",
+        borderColor: "rgb(255, 99, 132)",
+        // points on the bar chart where we put the actual data we need,
+        data: habitData,
+      },
+    ],
+  };
+  const config = {
+    type: "bar",
+    data: data,
+    options: {
+      responsive: true,
+    },
+  };
+  const myChart = new Chart(ctx, config);
+}
+>>>>>>> 8f388dd76c59f518307d06926b190afcc9c62f91
