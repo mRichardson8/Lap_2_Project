@@ -135,10 +135,10 @@ let testHabits = {
   name: "Matthew Richardson",
 };
 
-// createUserDetails(testHabits.name);
-// createHabits(testHabits.habits);
+createUserDetails(testHabits.name);
+createHabits(testHabits.habits);
 // addEventListeners();
-getUserData();
+// getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
@@ -201,11 +201,6 @@ leftArrow1.addEventListener("click", () => {
 userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
-
-
-
-
-
 
 const everything = [...document.querySelectorAll("*")];
 

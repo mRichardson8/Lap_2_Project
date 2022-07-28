@@ -114,9 +114,15 @@
   #log-in-sign-redirect {
     display: flex;
     font-family: "Poppins";
+    text-align: center;
+  }
+
+  #log-in-sign-redirect p{
+    width: 220px; 
   }
 
   #log-in-sign-up {
-    margin-left: 1rem;
+    margin: 16px 0px;
+    width: 80px;
   }
 }
