@@ -33,7 +33,7 @@ const data = [
   },
 ];
 
-createChart(data);
+
 
 async function getUserData() {
   let response = await fetch("https://viva-pal.herokuapp.com/api/habits", {
@@ -53,7 +53,11 @@ async function getUserData() {
     console.log(data.habits);
     createUserDetails(data.name);
     createHabits(data.habits);
+    if(data.data.length > 0){
+      createChart(data.data);
+    }
     addEventListeners();
+    
   }
 }
 

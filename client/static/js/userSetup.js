@@ -344,22 +344,7 @@ function createChart(dataHabit) {
   //   const goals = Object.keys(dataHabit).length;
   const data = {
     labels,
-    datasets: [
-      {
-        label: "Water",
-        backgroundColor: "#3decdd",
-        borderColor: "rgb(255, 99, 132)",
-        // points on the bar chart where we put the actual data we need
-        data: values.map((arr) => arr[0]),
-      },
-      {
-        label: "Sleep",
-        backgroundColor: "blue",
-        borderColor: "rgb(255, 99, 132)",
-        // points on the bar chart where we put the actual data we need,
-        data: values.map((arr) => arr[1]),
-      },
-    ],
+    datasets : calcDatasets(dataHabit),
   };
   const config = {
     type: "bar",
@@ -378,19 +363,40 @@ function createChart(dataHabit) {
   const myChart = new Chart(ctx, config);
 }
 
-function calcDataset(habits) {
-  let dataSet = []; //each index is for a different habit
-  let numberOfHabits = habits.length;
-  habits.forEach((habit) => {
-    if (habit[1].current > habit[1].required) {
-      habit[1].current = habit[1].required;
+function calcValues(habits){
+  let dataSet = [] //each index is for a different habit
+  let numberOfHabits = habits.length
+  habits.forEach( habit => {
+    if(habit[1].current > habit[1].required){
+      habit[1].current = habit[1].required
     }
-    let value = (habit[1].current / habit[1].required) * (100 / numberOfHabits);
-    dataSet.push(value);
+      let value = (habit[1].current / habit[1].required) * (100/numberOfHabits)
+      dataSet.push(value)
   });
-  return dataSet;
+  return dataSet
 }
 
+
+function calcDatasets(habits){
+  const habitArr = habits.map(habit => Object.entries(habit.habits))
+  let dataset = []
+  let numberOfHabits = habitArr[0].length
+  let labels = habitArr[0].map(habit => habit[0])
+  const values = habits.map(habits => calcValues(Object.entries(habits.habits)))
+  let backgrounds = ["#3decdd", "blue", "red"]
+  let borders = ["rgb(255, 99, 132)", "rgb(255, 99, 132)", "rgb(255, 99, 132)"]
+  for (let count = 0; count < numberOfHabits; count++) {
+      dataset.push({
+          label: labels[count],
+          backgroundColor: backgrounds[count],
+          borderColor: borders[count],
+          data: values.map(arr => arr[count]),
+      })
+  }
+
+  return dataset
+
+}
 
 function userLogOut(){
   window.localStorage.removeItem('token');
