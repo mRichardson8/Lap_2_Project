@@ -312,15 +312,24 @@
   }
 
   .water-input-container {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .exercise-input-container {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .sleep-input-container {
-    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   .chart {
@@ -333,7 +342,7 @@
     display: block;
   }
 
-  .chart-btn-container{
+  .chart-btn-container {
     margin: 0;
     display: flex;
     justify-content: center;
