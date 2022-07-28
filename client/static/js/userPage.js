@@ -200,10 +200,11 @@ userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
 
-// btn.addEventListener('click', function() {
-//   document.body.classList.toggle('dark-theme');
-//   document.getElementsByClassName.toggle('dark-theme');
-// })
+const btn = document.getElementsByClassName('btn-toggle');
+
+btn.addEventListener('click', function() {
+  darkMode();
+})
 
 const everything = [...document.querySelectorAll('*')];
 
