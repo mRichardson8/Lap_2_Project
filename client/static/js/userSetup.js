@@ -11,18 +11,21 @@ function createUserDetails(user) {
   settingsIcon.innerHTML =
     '<button id="open"><i class="fa-solid fa-user-gear" style="font-size: 18px;"></i></button>';
   settingsIcon.setAttribute("class", "icons");
-  let chartBtn = document.createElement("button");
-  chartBtn.setAttribute("class", "chart-btn");
-  chartBtn.textContent = "See Chart";
+  let chartBtn = document.createElement("p");
+  chartBtn.setAttribute("class", "chart-btn-container");
+  // chartBtn.textContent = "See Chart";
+  chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
   chartBtn.addEventListener("click", () => {
     if (!document.querySelector(".chart").classList.contains("chart-visible")) {
       document.querySelector(".chart").classList.add("chart-visible");
       document.getElementById("habits-container").style.display = "none";
-      chartBtn.textContent = "Back to Main";
+      // chartBtn.textContent = "Back to Main";
+      chartBtn.innerHTML = `<button class="chart-btn"> Back </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     } else {
       document.querySelector(".chart").classList.remove("chart-visible");
       document.getElementById("habits-container").style.display = "block";
-      chartBtn.textContent = "See Chart";
+      // chartBtn.textContent = "See Chart";
+      chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     }
   });
   let settingsIcon2 = document.createElement("p");
