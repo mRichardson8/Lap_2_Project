@@ -234,6 +234,9 @@ function darkMode() {
     })
 }
 
+document.querySelector('#moon-button').addEventListener('click', () => {
+    darkMode();
+})
 
 
 
