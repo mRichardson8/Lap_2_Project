@@ -1,37 +1,49 @@
 function createUserDetails(user) {
   let dashboard = document.getElementById("user-page-dashboard");
+
   let userNav = document.createElement("div");
   userNav.setAttribute("class", "user-nav");
+
   let title = document.createElement("h1");
   title.textContent = "VivaPal";
+
   let settingsIcon = document.createElement("p");
-  settingsIcon.innerHTML = '<i class="fa-solid fa-user-gear"></i>';
+  settingsIcon.innerHTML =
+    '<button id="open"><i class="fa-solid fa-user-gear" style="font-size: 18px;"></i></button>';
   settingsIcon.setAttribute("class", "icons");
-  let chartBtn = document.createElement("button");
-  chartBtn.setAttribute("class", "chart-btn");
-  chartBtn.textContent = "See Chart";
+
+  let chartBtn = document.createElement("p");
+  chartBtn.setAttribute("class", "chart-btn-container");
+  // chartBtn.textContent = "See Chart";
+  chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
   chartBtn.addEventListener("click", () => {
     if (!document.querySelector(".chart").classList.contains("chart-visible")) {
       document.querySelector(".chart").classList.add("chart-visible");
       document.getElementById("habits-container").style.display = "none";
-      chartBtn.textContent = "Back to Main";
+      // chartBtn.textContent = "Back to Main";
+      chartBtn.innerHTML = `<button class="chart-btn"> Back </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     } else {
       document.querySelector(".chart").classList.remove("chart-visible");
       document.getElementById("habits-container").style.display = "block";
-      chartBtn.textContent = "See Chart";
+      // chartBtn.textContent = "See Chart";
+      chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     }
+    let buttonElement = document.querySelector('button.chart-btn')
+    buttonElement.style.backgroundColor = window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color');
+    buttonElement.style.color = window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('color');
   });
+
   let settingsIcon2 = document.createElement("p");
   settingsIcon2.innerHTML =
-  `<button id="moon-button"><span class="material-symbols-outlined"> dark_mode </span></button>`;
+  `<button id="moon-button"><span class="material-symbols-outlined" style="font-size: 25px;"> dark_mode </span></button>`;
   settingsIcon2.setAttribute("class", "btn-toggle");
+
   let name = document.createElement("p");
   name.innerText = user;
   name.setAttribute("class", "userName");
-  userNav.append(title, settingsIcon, chartBtn, settingsIcon2, name);
+  userNav.append(title, settingsIcon, settingsIcon2, name, chartBtn);
   dashboard.prepend(userNav);
 }
-
 
 function createHabits(habits) {
   let habitsDiv = document.getElementById("habits-container");
@@ -83,7 +95,17 @@ function createWaterDiv(data) {
       inputLabel.textContent = "Water consumed (ml):";
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputNumber.style.border = 
+      `1px solid ${inputBorder}`;
+      inputNumber.style.fontFamily = 'Poppins';
       let inputSubmitBtn = document.createElement("button");
+      inputSubmitBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
+      inputSubmitBtn.style.borderRadius = '10px';
       inputSubmitBtn.textContent = "Add entry";
       inputSubmitBtn.addEventListener("click", () => {
         let waterStreak = parseInt(
@@ -121,6 +143,10 @@ function createWaterDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
+      inputUndoBtn.style.borderRadius = '10px';
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -174,8 +200,18 @@ function createExerciseDiv(data) {
       inputLabel.textContent = "Minutes of Exercise:";
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputNumber.style.border = 
+      `1px solid ${inputBorder}`;
+      inputNumber.style.fontFamily = 'Poppins';
       let inputSubmitBtn = document.createElement("button");
       inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
+      inputSubmitBtn.style.borderRadius = '10px';
       inputSubmitBtn.addEventListener("click", () => {
         let exerciseStreak = parseInt(
           document.getElementById("exercise-streak").innerText.split(" ")[2]
@@ -212,6 +248,10 @@ function createExerciseDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
+      inputUndoBtn.style.borderRadius = '10px';
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -253,6 +293,7 @@ function createSleepDiv(data) {
   addBtn.setAttribute("id", "habit-button");
   addBtn.innerText = "+";
   addBtn.addEventListener("click", (e) => {
+
     if (e.target === document.getElementById("sleep-current").nextSibling) {
       let inputDiv = document.createElement("div");
       inputDiv.style.display = "flex";
@@ -265,8 +306,18 @@ function createSleepDiv(data) {
       inputLabel.textContent = "Hours of sleep:";
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputNumber.style.border = 
+      `1px solid ${inputBorder}`;
+      inputNumber.style.fontFamily = 'Poppins';
       let inputSubmitBtn = document.createElement("button");
       inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
+      inputSubmitBtn.style.borderRadius = '10px';
       inputSubmitBtn.addEventListener("click", () => {
         let sleepStreak = parseInt(
           document.getElementById("sleep-streak").innerText.split(" ")[2]
@@ -303,6 +354,10 @@ function createSleepDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
+      inputUndoBtn.style.borderRadius = '10px';
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -326,27 +381,12 @@ function createChart(dataHabit) {
   // what goes on the x axis
   const labels = dataHabit.map((d) => d.date);
   const values = dataHabit.map((habits) =>
-    calcDataset(Object.entries(habits.habits))
+    calcValues(Object.entries(habits.habits))
   );
   //   const goals = Object.keys(dataHabit).length;
   const data = {
     labels,
-    datasets: [
-      {
-        label: "Water",
-        backgroundColor: "#3decdd",
-        borderColor: "rgb(255, 99, 132)",
-        // points on the bar chart where we put the actual data we need
-        data: values.map((arr) => arr[0]),
-      },
-      {
-        label: "Sleep",
-        backgroundColor: "blue",
-        borderColor: "rgb(255, 99, 132)",
-        // points on the bar chart where we put the actual data we need,
-        data: values.map((arr) => arr[1]),
-      },
-    ],
+    datasets : calcDatasets(dataHabit),
   };
   const config = {
     type: "bar",
@@ -365,17 +405,73 @@ function createChart(dataHabit) {
   const myChart = new Chart(ctx, config);
 }
 
-function calcDataset(habits) {
-  let dataSet = []; //each index is for a different habit
-  let numberOfHabits = habits.length;
-  habits.forEach((habit) => {
-    if (habit[1].current > habit[1].required) {
-      habit[1].current = habit[1].required;
+function calcValues(habits){
+  let dataSet = [] //each index is for a different habit
+  let numberOfHabits = habits.length
+  habits.forEach( habit => {
+    if(habit[1].current > habit[1].required){
+      habit[1].current = habit[1].required
     }
-    let value = (habit[1].current / habit[1].required) * (100 / numberOfHabits);
-    dataSet.push(value);
+      let value = (habit[1].current / habit[1].required) * (100/numberOfHabits)
+      dataSet.push(value)
   });
-  return dataSet;
+  return dataSet
 }
 
+
+function calcDatasets(habits){
+  const habitArr = habits.map(habit => Object.entries(habit.habits))
+  let dataset = []
+  let numberOfHabits = habitArr[0].length
+  let labels = habitArr[0].map(habit => habit[0])
+  const values = habits.map(habits => calcValues(Object.entries(habits.habits)))
+  let backgrounds = ["#3decdd", "blue", "red"]
+  let borders = ["rgb(255, 99, 132)", "rgb(255, 99, 132)", "rgb(255, 99, 132)"]
+  for (let count = 0; count < numberOfHabits; count++) {
+      dataset.push({
+          label: labels[count],
+          backgroundColor: backgrounds[count],
+          borderColor: borders[count],
+          data: values.map(arr => arr[count]),
+      })
+  }
+
+  return dataset
+
+}
+
+function userLogOut(){
+  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('email');
+  window.localStorage.removeItem('userId');
+  window.localStorage.removeItem('name');
+  window.location.pathname = '';
+}
 // createChart();
+
+function addEventListeners(){
+  const btn = document.getElementById('moon-button');
+  btn.addEventListener('click', () => {
+    console.log('clicked')
+      if (window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color') == 'rgb(61, 236, 221)'){
+        darkMode();
+      } else{
+        lightMode();
+      }});
+    
+  const open = document.getElementById("open");
+  const modal_container = document.getElementById("modal-container");
+  const close = document.getElementById("close");
+  
+  open.addEventListener("click", () => {
+    modal_container.classList.add("show");
+  });
+  
+  close.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
+
+  document.querySelector('div.modal button').addEventListener('click', () => {
+    userLogOut();
+  })
+}
