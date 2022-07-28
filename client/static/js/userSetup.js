@@ -87,6 +87,7 @@ function createWaterDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("water-current").nextSibling) {
       let inputDiv = document.createElement("div");
+      inputDiv.setAttribute('class', "water-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
@@ -192,6 +193,7 @@ function createExerciseDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("exercise-current").nextSibling) {
       let inputDiv = document.createElement("div");
+      inputDiv.setAttribute('class', "exercise-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
@@ -298,6 +300,7 @@ function createSleepDiv(data) {
 
     if (e.target === document.getElementById("sleep-current").nextSibling) {
       let inputDiv = document.createElement("div");
+      inputDiv.setAttribute('class', "sleep-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
@@ -396,10 +399,15 @@ function createChart(dataHabit) {
     options: {
       scales: {
         x: {
-          stacked: true,
+          stacked:true,
         },
         y: {
           stacked: true,
+          ticks: {
+            beginAtZero: true,
+            stepValue: 10,
+            max: 100,
+        }
         },
       },
     },
@@ -427,7 +435,7 @@ function calcDatasets(habits){
   let numberOfHabits = habitArr[0].length
   let labels = habitArr[0].map(habit => habit[0])
   const values = habits.map(habits => calcValues(Object.entries(habits.habits)))
-  let backgrounds = ["#3decdd", "blue", "red"]
+  let backgrounds = ["#3decdd", "blue", "#49799b"]
   let borders = ["rgb(255, 99, 132)", "rgb(255, 99, 132)", "rgb(255, 99, 132)"]
   for (let count = 0; count < numberOfHabits; count++) {
       dataset.push({
