@@ -210,33 +210,49 @@ const everything = [...document.querySelectorAll("*")];
 function darkMode() {
     everything.forEach(each => {
         if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
-            each.style.color = '#1c059f';
+            each.style.color = '#49799b';
         }
         if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
-            each.style.backgroundColor = '#1c059f';
+            each.style.backgroundColor = '#49799b';
     
         }
+        if (window.getComputedStyle(each).getPropertyValue('border-color') === "rgb(61, 236, 221)") {
+          each.style.border = '1px solid #49799b';
+  
+      }
+      if (window.getComputedStyle(each).getPropertyValue('border-bottom-color') === "rgb(61, 236, 221)") {
+        each.style.borderBottom = '1px solid #49799b';
+
+    }
         if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
-            each.style.color = "#a3a2a2";
+            each.style.color = "#242526";
         }
         if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
-            each.style.backgroundColor = '#a3a2a2';
+            each.style.backgroundColor = '#242526';
         }
     })
 }
 
 function lightMode(){
   everything.forEach(each => {
-    if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(28, 5, 159)') {
+    if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(73, 121, 155)') {
         each.style.color = "#3decdd";
     }
-    if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(28, 5, 159)') {
+    if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(73, 121, 155)') {
         each.style.backgroundColor = "#3decdd";
     }
-    if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(163, 162, 162)") {
+    if (window.getComputedStyle(each).getPropertyValue('border-color') === "rgb(73, 121, 155)") {
+      each.style.border = '1px solid #3decdd';
+
+  }
+  if (window.getComputedStyle(each).getPropertyValue('border-bottom-color') === "rgb(73, 121, 155)") {
+    each.style.borderBottom = '1px solid #3decdd';
+
+}
+    if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(36, 37, 38)") {
         each.style.color = "#ffffff"
     }
-    if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(163, 162, 162)") {
+    if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(36, 37, 38)") {
         each.style.backgroundColor = "#ffffff";
     }
 })
