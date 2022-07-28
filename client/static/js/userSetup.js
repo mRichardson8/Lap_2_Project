@@ -339,7 +339,7 @@ function createChart(dataHabit) {
   // what goes on the x axis
   const labels = dataHabit.map((d) => d.date);
   const values = dataHabit.map((habits) =>
-    calcDataset(Object.entries(habits.habits))
+    calcValues(Object.entries(habits.habits))
   );
   //   const goals = Object.keys(dataHabit).length;
   const data = {
@@ -352,10 +352,15 @@ function createChart(dataHabit) {
     options: {
       scales: {
         x: {
-          stacked: true,
+          stacked:true,
         },
         y: {
           stacked: true,
+          ticks: {
+            beginAtZero: true,
+            stepValue: 10,
+            max: 100,
+        }
         },
       },
     },
@@ -383,7 +388,7 @@ function calcDatasets(habits){
   let numberOfHabits = habitArr[0].length
   let labels = habitArr[0].map(habit => habit[0])
   const values = habits.map(habits => calcValues(Object.entries(habits.habits)))
-  let backgrounds = ["#3decdd", "blue", "red"]
+  let backgrounds = ["#3decdd", "blue", "#49799b"]
   let borders = ["rgb(255, 99, 132)", "rgb(255, 99, 132)", "rgb(255, 99, 132)"]
   for (let count = 0; count < numberOfHabits; count++) {
       dataset.push({
