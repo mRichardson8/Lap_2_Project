@@ -28,6 +28,9 @@ function createUserDetails(user) {
       // chartBtn.textContent = "See Chart";
       chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     }
+    let buttonElement = document.querySelector('button.chart-btn')
+    buttonElement.style.backgroundColor = window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color');
+    buttonElement.style.color = window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('color');
   });
 
   let settingsIcon2 = document.createElement("p");
@@ -262,6 +265,7 @@ function createSleepDiv(data) {
   addBtn.setAttribute("id", "habit-button");
   addBtn.innerText = "+";
   addBtn.addEventListener("click", (e) => {
+
     if (e.target === document.getElementById("sleep-current").nextSibling) {
       let inputDiv = document.createElement("div");
       inputDiv.style.display = "flex";
