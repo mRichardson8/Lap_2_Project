@@ -17,7 +17,7 @@ function createUserDetails(user) {
       chartBtn.textContent = "Back to Main";
     } else {
       document.querySelector(".chart").classList.remove("chart-visible");
-      document.getElementById("habits-container").style.display = "flex";
+      document.getElementById("habits-container").style.display = "block";
       chartBtn.textContent = "See Chart";
     }
   });
