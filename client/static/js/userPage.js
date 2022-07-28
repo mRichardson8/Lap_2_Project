@@ -110,48 +110,17 @@ async function sendHabits() {
   }
 }
 
-async function updateHabits() {
-  let data = await fetch("https://viva-pal.herokuapp.com/api/habits", {
+async function updateHabits(habitParam) {
+  let data = await fetch("https://viva-pal.herokuapp.com/api/updatehabit", {
     method: "PATCH",
     headers: {
       Authorization: "Bearer " + localStorage.token,
+      "Content-Type": "application/json",
     },
-    body: JSON.stringify({
-      //make function to create habits object to send with only right habits
-      habits: {
-        //TODO this needs to be changed
-        water: {
-          current: parseInt(
-            document
-              .querySelector("#water-container .habit-current")
-              .innerText.split(" ")[3]
-          ),
-        },
-        exercise: {
-          current: parseInt(
-            document
-              .querySelector("#exercise-container .exercise-current")
-              .innerText.split(" ")[3]
-          ),
-        },
-        sleep: {
-          current: parseInt(
-            document
-              .querySelector("#sleep-container .sleep-current")
-              .innerText.split(" ")[4]
-          ),
-        },
-      },
-    }),
+    body: JSON.stringify(habitParam),
   });
   let response = await data.json();
-  if (!response.habit) {
-    document.getElementById("user-page-create-habits-container").style.display =
-      "flex";
-  } else {
-    createUserDetails(response.name);
-    createHabits(response.habits);
-  }
+  console.log(response.status)
 }
 
 let testHabits = {
@@ -165,9 +134,9 @@ let testHabits = {
      name: "Matthew Richardson",
  }
 
-createUserDetails(testHabits.name)
-createHabits(testHabits.habits)
-// getUserData();
+// createUserDetails(testHabits.name)
+// createHabits(testHabits.habits)
+getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
@@ -231,43 +200,43 @@ userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
 
-// btn.addEventListener('click', function() {
-//   document.body.classList.toggle('dark-theme');
-//   document.getElementsByClassName.toggle('dark-theme');
-// })
+const btn = document.getElementsByClassName('btn-toggle');
+
 
 const everything = [...document.querySelectorAll('*')];
 
 
 function darkMode() {
     everything.forEach(each => {
-        if (each.style.color === '#3decdd') {
+        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
             each.style.color = '#1c059f';
-        } else if (each.style.color === '#1c059f') {
+        } else if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(28, 5, 159)') {
             each.style.color = "#3decdd";
         }
-        if (each.style.backgroundColor === "#3decdd") {
+        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
             each.style.backgroundColor = '#1c059f';
     
-        } else if (each.style.backgroundColor === '#1c059f') {
+        } else if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(28, 5, 159)') {
             each.style.backgroundColor = "#3decdd";
         }
-        if (each.style.color === "#ffffff") {
+        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
             each.style.color = "#a3a2a2";
-        } else if (each.style.color === "#a3a2a2") {
+        } else if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(163, 162, 162)") {
             each.style.color = "#ffffff"
         }
-        if (each.style.backgroundColor === "#ffffff"){
+        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
             each.style.backgroundColor = '#a3a2a2';
-        } else if (each.style.backgroundColor === '#a3a2a2') {
+        } else if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(163, 162, 162)") {
             each.style.backgroundColor = "#ffffff";
         }
     })
 }
 
-// const modal = document.querySelector("#modal");
-// const openModal = document.querySelector(".icons");
-// const closeModal = document.querySelector(".no-button");
+btn.addEventListener('click', function() {
+    darkMode();
+  })
+  
+
 
 // openModal.addEventListener("click", (e) => {
 //   e.preventDefault();

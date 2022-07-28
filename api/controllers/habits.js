@@ -22,9 +22,10 @@ const createHabit = async (req, res) => {
 
 const updateHabit = async (req, res) => {
   try {
+    console.log(req.body)
     const habit = await Habit.findOneAndUpdate(
       { createdBy: req.user.userId },
-      req.body,
+      {$set : req.body},
       { new: true, runValidators: true }
     );
     res.status(200).json({ habit });
