@@ -8,7 +8,7 @@ describe("test mongoose Habit model", () => {
       _id: "507f191e810c19729de860ea",
       name: "name",
       habits: "name@email.com",
-    //   createdBy: req.user.userId,
+      //   createdBy: req.user.userId,
     };
 
     mockingoose(HabitModel).toReturn(_doc, "findOne");
@@ -40,7 +40,6 @@ describe("test mongoose Habit model", () => {
       _id: "507f191e810c19729de860ea",
       name: "name",
       habits: "name@email.com",
-      createdBy: req.user.userId,
     };
 
     mockingoose(HabitModel).toReturn(_doc, "findOneAndUpdate");
