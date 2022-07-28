@@ -382,4 +382,12 @@ function calcDataset(habits) {
   return dataSet;
 }
 
+
+function userLogOut(){
+  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('email');
+  window.localStorage.removeItem('userId');
+  window.localStorage.removeItem('name');
+  window.location.pathname = '';
+}
 // createChart();

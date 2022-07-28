@@ -134,9 +134,9 @@ let testHabits = {
   name: "Matthew Richardson",
 };
 
-createUserDetails(testHabits.name);
-createHabits(testHabits.habits);
-// getUserData();
+// createUserDetails(testHabits.name);
+// createHabits(testHabits.habits);
+getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
@@ -281,3 +281,7 @@ open.addEventListener("click", () => {
 close.addEventListener("click", () => {
   modal_container.classList.remove("show");
 });
+
+document.querySelector('div.modal button').addEventListener('click', () => {
+  userLogOut();
+})
