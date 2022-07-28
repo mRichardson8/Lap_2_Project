@@ -85,7 +85,7 @@ function createWaterDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("water-current").nextSibling) {
       let inputDiv = document.createElement("div");
-      inputDiv.setAttribute('class', "water-input-container");
+      inputDiv.setAttribute('class', "water-input-container");//
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
