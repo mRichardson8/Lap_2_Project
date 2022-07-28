@@ -400,6 +400,7 @@ function userLogOut(){
 function addEventListeners(){
   const btn = document.getElementById('moon-button');
   btn.addEventListener('click', () => {
+    console.log('clicked')
       if (window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color') == 'rgb(61, 236, 221)'){
         darkMode();
       } else{
