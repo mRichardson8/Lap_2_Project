@@ -95,7 +95,17 @@ function createWaterDiv(data) {
       inputLabel.textContent = "Water consumed (ml):";
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputNumber.style.border = 
+      `1px solid ${inputBorder}`;
+      inputNumber.style.fontFamily = 'Poppins';
       let inputSubmitBtn = document.createElement("button");
+      inputSubmitBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
+      inputSubmitBtn.style.borderRadius = '10px';
       inputSubmitBtn.textContent = "Add entry";
       inputSubmitBtn.addEventListener("click", () => {
         let waterStreak = parseInt(
@@ -133,6 +143,10 @@ function createWaterDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
+      inputUndoBtn.style.borderRadius = '10px';
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -186,8 +200,18 @@ function createExerciseDiv(data) {
       inputLabel.textContent = "Minutes of Exercise:";
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputNumber.style.border = 
+      `1px solid ${inputBorder}`;
+      inputNumber.style.fontFamily = 'Poppins';
       let inputSubmitBtn = document.createElement("button");
       inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
+      inputSubmitBtn.style.borderRadius = '10px';
       inputSubmitBtn.addEventListener("click", () => {
         let exerciseStreak = parseInt(
           document.getElementById("exercise-streak").innerText.split(" ")[2]
@@ -224,6 +248,10 @@ function createExerciseDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
+      inputUndoBtn.style.borderRadius = '10px';
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -278,8 +306,18 @@ function createSleepDiv(data) {
       inputLabel.textContent = "Hours of sleep:";
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputNumber.style.border = 
+      `1px solid ${inputBorder}`;
+      inputNumber.style.fontFamily = 'Poppins';
       let inputSubmitBtn = document.createElement("button");
       inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
+      inputSubmitBtn.style.borderRadius = '10px';
       inputSubmitBtn.addEventListener("click", () => {
         let sleepStreak = parseInt(
           document.getElementById("sleep-streak").innerText.split(" ")[2]
@@ -316,6 +354,10 @@ function createSleepDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
+      inputUndoBtn.style.borderRadius = '10px';
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
