@@ -11,7 +11,7 @@ describe("test mongoose User model", () => {
       password: "secret",
     };
 
-    mockingoose(UserModel).toReturn(_doc, "create");
+    mockingoose(UserModel).toReturn(_doc, "save");
 
     return UserModel.create({ email: "name@email.com" }).then((doc) => {
       expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
