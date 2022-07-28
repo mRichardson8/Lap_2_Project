@@ -120,19 +120,19 @@ async function updateHabits(habitParam) {
     body: JSON.stringify(habitParam),
   });
   let response = await data.json();
-  console.log(response.status)
+  console.log(response.status);
 }
 
 let testHabits = {
-    createdBy:"62dfcb97433fa6ec72a53fc6",
-     data:[{}],
-     habits : {
-         exercise:{required:30,streak:5, met: false, current: 0},
-         water:{required:2000,streak:2, met: true, current: 1900},
-         sleep:{required:8,streak:0, met: false, current: 0}
-     },
-     name: "Matthew Richardson",
- }
+  createdBy: "62dfcb97433fa6ec72a53fc6",
+  data: [{}],
+  habits: {
+    exercise: { required: 30, streak: 5, met: false, current: 0 },
+    water: { required: 2000, streak: 2, met: true, current: 1900 },
+    sleep: { required: 8, streak: 0, met: false, current: 0 },
+  },
+  name: "Matthew Richardson",
+};
 
 // createUserDetails(testHabits.name)
 // createHabits(testHabits.habits)
@@ -205,35 +205,54 @@ userPageSubmitBtn.addEventListener("click", () => {
 //   document.getElementsByClassName.toggle('dark-theme');
 // })
 
-const everything = [...document.querySelectorAll('*')];
-
+const everything = [...document.querySelectorAll("*")];
 
 function darkMode() {
-    everything.forEach(each => {
-        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
-            each.style.color = '#1c059f';
-        } else if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(28, 5, 159)') {
-            each.style.color = "#3decdd";
-        }
-        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
-            each.style.backgroundColor = '#1c059f';
-    
-        } else if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(28, 5, 159)') {
-            each.style.backgroundColor = "#3decdd";
-        }
-        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
-            each.style.color = "#a3a2a2";
-        } else if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(163, 162, 162)") {
-            each.style.color = "#ffffff"
-        }
-        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
-            each.style.backgroundColor = '#a3a2a2';
-        } else if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(163, 162, 162)") {
-            each.style.backgroundColor = "#ffffff";
-        }
-    })
+  everything.forEach((each) => {
+    if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.color = "#1c059f";
+    } else if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(28, 5, 159)"
+    ) {
+      each.style.color = "#3decdd";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.backgroundColor = "#1c059f";
+    } else if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(28, 5, 159)"
+    ) {
+      each.style.backgroundColor = "#3decdd";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(255, 255, 255)"
+    ) {
+      each.style.color = "#a3a2a2";
+    } else if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(163, 162, 162)"
+    ) {
+      each.style.color = "#ffffff";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(255, 255, 255)"
+    ) {
+      each.style.backgroundColor = "#a3a2a2";
+    } else if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(163, 162, 162)"
+    ) {
+      each.style.backgroundColor = "#ffffff";
+    }
+  });
 }
-
-
-
 

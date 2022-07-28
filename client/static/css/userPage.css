@@ -235,7 +235,28 @@
   .chart {
     width: 90vw;
     margin: 2rem auto;
+    display: none;
   }
+
+  .chart-visible {
+    display: block;
+  }
+
+  .chart-btn {
+    border: transparent;
+    padding: 0.25rem 0.75rem;
+    background-color: #3decdd;
+    color: #fff;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 0.75rem;
+  }
+
+  /* .user-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } */
 
   .dark-theme {
     background: #313131;
