@@ -38,6 +38,7 @@ function createUserDetails(user) {
   name.setAttribute("class", "userName");
   userNav.append(title, settingsIcon, settingsIcon2, name, chartBtn);
   dashboard.prepend(userNav);
+  
 }
 
 function createHabits(habits) {
@@ -385,4 +386,38 @@ function calcDataset(habits) {
   return dataSet;
 }
 
+
+function userLogOut(){
+  window.localStorage.removeItem('token');
+  window.localStorage.removeItem('email');
+  window.localStorage.removeItem('userId');
+  window.localStorage.removeItem('name');
+  window.location.pathname = '';
+}
 // createChart();
+
+function addEventListeners(){
+  const btn = document.getElementById('moon-button');
+  btn.addEventListener('click', () => {
+      if (window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color') == 'rgb(61, 236, 221)'){
+        darkMode();
+      } else{
+        lightMode();
+      }});
+    
+  const open = document.getElementById("open");
+  const modal_container = document.getElementById("modal-container");
+  const close = document.getElementById("close");
+  
+  open.addEventListener("click", () => {
+    modal_container.classList.add("show");
+  });
+  
+  close.addEventListener("click", () => {
+    modal_container.classList.remove("show");
+  });
+
+  document.querySelector('div.modal button').addEventListener('click', () => {
+    userLogOut();
+  })
+}

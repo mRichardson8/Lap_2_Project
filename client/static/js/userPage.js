@@ -53,6 +53,7 @@ async function getUserData() {
     console.log(data.habits);
     createUserDetails(data.name);
     createHabits(data.habits);
+    addEventListeners();
   }
 }
 
@@ -134,9 +135,10 @@ let testHabits = {
   name: "Matthew Richardson",
 };
 
-createUserDetails(testHabits.name);
-createHabits(testHabits.habits);
-// getUserData();
+// createUserDetails(testHabits.name);
+// createHabits(testHabits.habits);
+// addEventListeners();
+getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
@@ -200,7 +202,7 @@ userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
 
-const btn = document.getElementById('moon-button');
+
 
 
 
@@ -256,28 +258,5 @@ function lightMode(){
         each.style.backgroundColor = "#ffffff";
     }
 })
-}
+}  
 
-btn.addEventListener('click', () => {
-    if (window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color') == 'rgb(61, 236, 221)'){
-      darkMode();
-    } else{
-      lightMode();
-    }
-    
-    
-}
-)
-  
-
-const open = document.getElementById("open");
-const modal_container = document.getElementById("modal-container");
-const close = document.getElementById("close");
-
-open.addEventListener("click", () => {
-  modal_container.classList.add("show");
-});
-
-close.addEventListener("click", () => {
-  modal_container.classList.remove("show");
-});
