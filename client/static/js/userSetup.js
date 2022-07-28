@@ -11,6 +11,7 @@ function createUserDetails(user) {
   settingsIcon.innerHTML =
     '<button id="open"><i class="fa-solid fa-user-gear" style="font-size: 18px;"></i></button>';
   settingsIcon.setAttribute("class", "icons");
+
   let chartBtn = document.createElement("p");
   chartBtn.setAttribute("class", "chart-btn-container");
   // chartBtn.textContent = "See Chart";
@@ -28,6 +29,7 @@ function createUserDetails(user) {
       chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     }
   });
+
   let settingsIcon2 = document.createElement("p");
   settingsIcon2.innerHTML =
   `<button id="moon-button"><span class="material-symbols-outlined" style="font-size: 25px;"> dark_mode </span></button>`;
@@ -38,7 +40,6 @@ function createUserDetails(user) {
   name.setAttribute("class", "userName");
   userNav.append(title, settingsIcon, settingsIcon2, name, chartBtn);
   dashboard.prepend(userNav);
-  
 }
 
 function createHabits(habits) {
