@@ -265,5 +265,17 @@ function darkMode() {
     })
 }
 
+// const modal = document.querySelector("#modal");
+// const openModal = document.querySelector(".icons");
+// const closeModal = document.querySelector(".no-button");
 
+// openModal.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   modal.showModal();
+// });
+
+// closeModal.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   modal.close();
+// });
 

@@ -183,24 +183,37 @@
     text-align: start;
     float: left;
     padding-left: 30px;
+    padding-top: 4px;
+  }
+
+  .icons button {
+    background-color: transparent;
+    border: none;
+    color: var(--blue-theme);
+    width: fit-content;
   }
 
   .btn-toggle {
     text-align: end;
     padding-right: 30px;
+    width: fit-content;
+    float: right;
   }
 
   .btn-toggle button {
     background-color: transparent;
     border: none;
     color: var(--blue-theme);
+    width: fit-content;
   }
 
   .userName {
-    border-top: 1px solid var(--blue-theme);
+    border-bottom: 1px solid var(--blue-theme);
     padding-top: 16px;
+    padding-bottom: 16px;
     margin-top: 0px;
     text-align: center;
+    font-size: 20px;
   }
 
   #user-page-dashboard h3 {
