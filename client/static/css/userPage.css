@@ -316,13 +316,54 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--blue-theme);
   }
 
-  .exercise-input-container {
+  .water-input-container button {
     display: flex;
     justify-content: center;
     align-items: center;
     text-align: center;
+    border: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 2px;
+    background-color: var(--blue-theme);
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 10px;
+    width: 90px;
+    height: 25px;
+  }
+
+  .water-input-container button:hover,
+  .water-input-container button:focus {
+    background-color: white;
+    color: var(--blue-theme);
+  }
+
+  .water-input-container label {
+    margin-top: 5px;
+  }
+
+  .water-input-container input {
+    width: 150px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--blue-theme);
+    color: var(--blue-theme);
+    font-family: 'Poppins';
+    margin: 0px 10px;
+    font-size: 1rem;
+  }
+
+  .water-input-container input:focus {
+    outline: none;
   }
 
   .sleep-input-container {
@@ -330,6 +371,109 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--blue-theme);
+  }
+
+  .sleep-input-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 2px;
+    background-color: var(--blue-theme);
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 10px;
+    width: 90px;
+    height: 25px;
+  }
+
+  .sleep-input-container button:hover,
+  .sleep-input-container button:focus {
+    background-color: white;
+    color: var(--blue-theme);
+  }
+
+  .sleep-input-container label {
+    margin-top: 5px;
+  }
+
+  .sleep-input-container input {
+    width: 150px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--blue-theme);
+    color: var(--blue-theme);
+    font-family: 'Poppins';
+    margin: 0px 10px;
+    font-size: 1rem;
+  }
+
+  .sleep-input-container input:focus {
+    outline: none;
+  }
+
+  .exercise-input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--blue-theme);
+  }
+
+  .exercise-input-container button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 0px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding-top: 2px;
+    background-color: var(--blue-theme);
+    color: white;
+    cursor: pointer;
+    font-family: inherit;
+    border-radius: 10px;
+    width: 90px;
+    height: 25px;
+  }
+
+  .exercise-input-container button:hover,
+  .exercise-input-container button:focus {
+    background-color: white;
+    color: var(--blue-theme);
+  }
+
+  .exercise-input-container label {
+    margin-top: 5px;
+  }
+
+  .exercise-input-container input {
+    width: 150px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid var(--blue-theme);
+    color: var(--blue-theme);
+    font-family: 'Poppins';
+    margin: 0px 10px;
+    font-size: 1rem;
+  }
+
+  .exercise-input-container input:focus {
+    outline: none;
   }
 
   .chart {

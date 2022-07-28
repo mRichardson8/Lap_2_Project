@@ -1,3 +1,5 @@
+// User Details and Navbar Function
+
 function createUserDetails(user) {
   let dashboard = document.getElementById("user-page-dashboard");
 
@@ -47,6 +49,8 @@ function createUserDetails(user) {
   dashboard.prepend(userNav);
 }
 
+// Create Habits Function
+
 function createHabits(habits) {
   let habitsDiv = document.getElementById("habits-container");
   if (habits.water) {
@@ -63,6 +67,8 @@ function createHabits(habits) {
   }
 }
 
+// Water Function
+
 function createWaterDiv(data) {
   let div = document.createElement("div");
   div.setAttribute("id", "water-container");
@@ -72,17 +78,17 @@ function createWaterDiv(data) {
   title.innerText = "Water Intake";
 
   let streak = document.createElement("p");
-  streak.innerText = "Streak : " + data.streak;
+  streak.innerText = "Streak: " + data.streak;
   streak.setAttribute("class", "habit-streak");
   streak.setAttribute("id", "water-streak");
 
   let target = document.createElement("p");
-  target.innerText = "Target : " + data.required + " ml";
+  target.innerText = "Target: " + data.required + " ml";
   target.setAttribute("class", "habit-target");
   target.setAttribute("id", "water-target");
 
   let current = document.createElement("p");
-  current.innerText = "Water drank today: " + data.current + " ml";
+  current.innerText = "Water Drank Today: " + data.current + " ml";
   current.setAttribute("class", "habit-current");
   current.setAttribute("id", "water-current");
 
@@ -92,9 +98,12 @@ function createWaterDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("water-current").nextSibling) {
       let inputDiv = document.createElement("div");
-      inputDiv.setAttribute('class', "water-input-container");//
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputDiv.setAttribute('class', "water-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
+      inputDiv.style.borderTop =
+      `1px solid ${inputBorder}`;
 
       let inputContainer = document.createElement("div");
       inputContainer.style.display = "flex";
@@ -103,34 +112,20 @@ function createWaterDiv(data) {
       btnsContainer.style.display = "flex";
 
       let inputLabel = document.createElement("label");
-      inputLabel.textContent = "Water consumed (ml):";
+      inputLabel.textContent = "Water Consumed (ml):";
 
       let inputNumber = document.createElement("input");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputNumber.style.borderBottom =
+      `1px solid ${inputBorder}`;
       inputNumber.setAttribute("type", "number");
-      inputNumber.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputNumber.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-
-      let inputBorder = window
-        .getComputedStyle(document.querySelector(".userName"))
-        .getPropertyValue("border-color");
-      inputNumber.style.border = `1px solid ${inputBorder}`;
-      inputNumber.style.fontFamily = "Poppins";
 
       let inputSubmitBtn = document.createElement("button");
-      inputSubmitBtn.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      inputSubmitBtn.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
+      inputSubmitBtn.textContent = "Add Entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
 
-      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
-      inputSubmitBtn.style.borderRadius = "10px";
-      inputSubmitBtn.textContent = "Add entry";
       inputSubmitBtn.addEventListener("click", () => {
         let waterStreak = parseInt(
           document.getElementById("water-streak").innerText.split(" ")[2]
@@ -152,10 +147,10 @@ function createWaterDiv(data) {
           if (waterCurrent < waterTarget && newSum >= waterTarget) {
             waterStreak += 1;
             document.getElementById("water-streak").innerText =
-              "Streak : " + waterStreak;
+              "Streak: " + waterStreak;
           }
           document.getElementById("water-current").textContent =
-            "Water drank today: " + newSum + " ml";
+            "Water Drank Today: " + newSum + " ml";
           inputDiv.remove();
           updateHabits({
             "habits.water": {
@@ -170,14 +165,9 @@ function createWaterDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
-      inputUndoBtn.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      inputUndoBtn.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
-      inputUndoBtn.style.borderRadius = "10px";
+      inputUndoBtn.style.color = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -197,6 +187,8 @@ function createWaterDiv(data) {
   return div;
 }
 
+// Exercise Function
+
 function createExerciseDiv(data) {
   let div = document.createElement("div");
   div.setAttribute("id", "exercise-container");
@@ -206,17 +198,17 @@ function createExerciseDiv(data) {
   title.innerText = "Exercise";
 
   let streak = document.createElement("p");
-  streak.innerText = "Streak : " + data.streak;
+  streak.innerText = "Streak: " + data.streak;
   streak.setAttribute("class", "habit-streak");
   streak.setAttribute("id", "exercise-streak");
 
   let target = document.createElement("p");
-  target.innerText = "Target : " + data.required + " minutes";
+  target.innerText = "Target: " + data.required + " minutes";
   target.setAttribute("class", "habit-target");
   target.setAttribute("id", "exercise-target");
 
   let current = document.createElement("p");
-  current.innerText = "Minutes exercised today: " + data.current + " mins";
+  current.innerText = "Minutes Exercised Today: " + data.current + " minutes";
   current.setAttribute("class", "habit-current");
   current.setAttribute("id", "exercise-current");
 
@@ -226,9 +218,12 @@ function createExerciseDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("exercise-current").nextSibling) {
       let inputDiv = document.createElement("div");
-      inputDiv.setAttribute('class', "exercise-input-container");//
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputDiv.setAttribute('class', "exercise-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
+      inputDiv.style.borderTop =
+      `1px solid ${inputBorder}`;
 
       let inputContainer = document.createElement("div");
       inputContainer.style.display = "flex";
@@ -240,28 +235,17 @@ function createExerciseDiv(data) {
       inputLabel.textContent = "Minutes of Exercise:";
 
       let inputNumber = document.createElement("input");
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputNumber.style.borderBottom =
+      `1px solid ${inputBorder}`;
       inputNumber.setAttribute("type", "number");
-      inputNumber.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputNumber.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      let inputBorder = window
-        .getComputedStyle(document.querySelector(".userName"))
-        .getPropertyValue("border-color");
-      inputNumber.style.border = `1px solid ${inputBorder}`;
-      inputNumber.style.fontFamily = "Poppins";
+
       let inputSubmitBtn = document.createElement("button");
-      inputSubmitBtn.textContent = "Add entry";
-      inputSubmitBtn.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      inputSubmitBtn.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
-      inputSubmitBtn.style.borderRadius = "10px";
+      inputSubmitBtn.textContent = "Add Entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+
       inputSubmitBtn.addEventListener("click", () => {
         let exerciseStreak = parseInt(
           document.getElementById("exercise-streak").innerText.split(" ")[2]
@@ -298,14 +282,9 @@ function createExerciseDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
-      inputUndoBtn.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      inputUndoBtn.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
-      inputUndoBtn.style.borderRadius = "10px";
+      inputUndoBtn.style.color = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -325,6 +304,8 @@ function createExerciseDiv(data) {
   return div;
 }
 
+// Sleep Function
+
 function createSleepDiv(data) {
   let div = document.createElement("div");
   div.setAttribute("id", "sleep-container");
@@ -334,17 +315,17 @@ function createSleepDiv(data) {
   title.innerText = "Sleep";
 
   let streak = document.createElement("p");
-  streak.innerText = "Streak : " + data.streak;
+  streak.innerText = "Streak: " + data.streak;
   streak.setAttribute("class", "habit-streak");
   streak.setAttribute("id", "sleep-streak");
 
   let target = document.createElement("p");
-  target.innerText = "Target hours of sleep: " + data.required + " hours";
+  target.innerText = "Target Hours of Sleep: " + data.required + " hours";
   target.setAttribute("class", "habit-target");
   target.setAttribute("id", "sleep-target");
 
   let current = document.createElement("p");
-  current.innerText = "Hours slept: " + data.current + " hours";
+  current.innerText = "Hours Slept: " + data.current + " hours";
   current.setAttribute("class", "habit-current");
   current.setAttribute("id", "sleep-current");
 
@@ -354,38 +335,34 @@ function createSleepDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("sleep-current").nextSibling) {
       let inputDiv = document.createElement("div");
-      inputDiv.setAttribute('class', "sleep-input-container");//
+      let inputBorder = window.getComputedStyle(document.querySelector('.userName')).getPropertyValue('border-color');
+      inputDiv.setAttribute('class', "sleep-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
+      inputDiv.style.borderTop =
+      `1px solid ${inputBorder}`;
+
       let inputContainer = document.createElement("div");
       inputContainer.style.display = "flex";
+
       let btnsContainer = document.createElement("div");
       btnsContainer.style.display = "flex";
+
       let inputLabel = document.createElement("label");
-      inputLabel.textContent = "Hours of sleep:";
+      inputLabel.textContent = "Hours of Sleep:";
+
       let inputNumber = document.createElement("input");
       inputNumber.setAttribute("type", "number");
-      inputNumber.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputNumber.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      let inputBorder = window
-        .getComputedStyle(document.querySelector(".userName"))
-        .getPropertyValue("border-color");
-      inputNumber.style.border = `1px solid ${inputBorder}`;
-      inputNumber.style.fontFamily = "Poppins";
+      inputNumber.style.backgroundColor = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      inputNumber.style.borderBottom =
+      `1px solid ${inputBorder}`;
+
       let inputSubmitBtn = document.createElement("button");
-      inputSubmitBtn.textContent = "Add entry";
-      inputSubmitBtn.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      inputSubmitBtn.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputSubmitBtn.style.border = `1px solid ${inputBorder}`;
-      inputSubmitBtn.style.borderRadius = "10px";
+      inputSubmitBtn.textContent = "Add Entry";
+      inputSubmitBtn.style.color = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputSubmitBtn.style.backgroundColor = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+
       inputSubmitBtn.addEventListener("click", () => {
         let sleepStreak = parseInt(
           document.getElementById("sleep-streak").innerText.split(" ")[2]
@@ -407,7 +384,7 @@ function createSleepDiv(data) {
               "Streak : " + sleepStreak;
           }
           document.getElementById("sleep-current").textContent =
-            "Hours slept: " + newSum + " hours";
+            "Hours Slept: " + newSum + " hours";
           inputDiv.remove();
           updateHabits({
             "habits.sleep": {
@@ -422,14 +399,9 @@ function createSleepDiv(data) {
       });
       let inputUndoBtn = document.createElement("button");
       inputUndoBtn.textContent = "Undo";
-      inputUndoBtn.style.color = window
-        .getComputedStyle(document.getElementById("moon-button"))
-        .getPropertyValue("color");
-      inputUndoBtn.style.backgroundColor = window
-        .getComputedStyle(document.querySelector("body"))
-        .getPropertyValue("background-color");
-      inputUndoBtn.style.border = `1px solid ${inputBorder}`;
-      inputUndoBtn.style.borderRadius = "10px";
+      inputUndoBtn.style.color = window.getComputedStyle(document.querySelector('body')).getPropertyValue('background-color');
+      inputUndoBtn.style.backgroundColor = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('color');
+      
       inputUndoBtn.addEventListener("click", () => {
         inputDiv.remove();
       });
@@ -447,6 +419,8 @@ function createSleepDiv(data) {
   div.append(title, streak, target, current, addBtn);
   return div;
 }
+
+// Create Chart Function
 
 function createChart(dataHabit) {
   const ctx = document.getElementById("myChart").getContext("2d");

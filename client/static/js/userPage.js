@@ -231,6 +231,14 @@ function darkMode() {
     ) {
       each.style.borderBottom = "1px solid #49799b";
     }
+
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-top-color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.borderTop = "1px solid #49799b";
+    }
+
     if (
       window.getComputedStyle(each).getPropertyValue("color") ===
       "rgb(255, 255, 255)"
@@ -272,6 +280,12 @@ function lightMode() {
       "rgb(73, 121, 155)"
     ) {
       each.style.borderBottom = "1px solid #3decdd";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-top-color") ===
+      "rgb(73, 121, 155)"
+    ) {
+      each.style.borderTop = "1px solid #3decdd";
     }
     if (
       window.getComputedStyle(each).getPropertyValue("color") ===
