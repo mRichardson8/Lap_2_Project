@@ -472,7 +472,7 @@ function calcDatasets(habits) {
   const values = habits.map((habits) =>
     calcValues(Object.entries(habits.habits))
   );
-  let backgrounds = ["#3decdd", "blue", "red"];
+  let backgrounds = ["#3decdd", "blue", "#49799b"];
   let borders = ["rgb(255, 99, 132)", "rgb(255, 99, 132)", "rgb(255, 99, 132)"];
   for (let count = 0; count < numberOfHabits; count++) {
     dataset.push({
