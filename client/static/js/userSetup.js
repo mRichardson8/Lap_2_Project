@@ -94,10 +94,6 @@ function createWaterDiv(data) {
       let inputLabel = document.createElement("label");
       inputLabel.textContent = "Water consumed (ml):";
       let inputNumber = document.createElement("input");
-      inputNumber.style.backgroundColor = window.getComputedStyle(body).getPropertyValue('background-color');
-      inputNumber.style.color = window.getComputedStyle(document.getElementById('moon-button')).getPropertyValue('background-color');
-      inputNumber.style.border = 
-      `1px solid window.getComputedStyle(${inputDiv.parentNode}).getPropertyValue('border-color')`;
       inputNumber.setAttribute("type", "number");
       let inputSubmitBtn = document.createElement("button");
       inputSubmitBtn.textContent = "Add entry";
