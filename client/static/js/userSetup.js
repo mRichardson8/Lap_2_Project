@@ -23,7 +23,7 @@ function createUserDetails(user) {
   });
   let settingsIcon2 = document.createElement("p");
   settingsIcon2.innerHTML =
-    '<button><span class="material-symbols-outlined"> dark_mode </span></button>';
+  `<button id="moon-button"><span class="material-symbols-outlined"> dark_mode </span></button>`;
   settingsIcon2.setAttribute("class", "btn-toggle");
   let name = document.createElement("p");
   name.innerText = user;
