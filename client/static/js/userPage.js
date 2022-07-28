@@ -137,7 +137,7 @@ let testHabits = {
 
 // createUserDetails(testHabits.name);
 // createHabits(testHabits.habits);
-addEventListeners();
+// addEventListeners();
 getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
