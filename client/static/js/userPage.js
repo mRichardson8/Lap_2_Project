@@ -137,10 +137,10 @@ let testHabits = {
   name: "Matthew Richardson",
 };
 
-createUserDetails(testHabits.name);
-createHabits(testHabits.habits);
-addEventListeners();
-// getUserData();
+// createUserDetails(testHabits.name);
+// createHabits(testHabits.habits);
+// addEventListeners();
+getUserData();
 // document.getElementById('user-page-create-habits-container').style.display = 'flex';
 
 // This first block of code relates to the user being able to progress through the sign
