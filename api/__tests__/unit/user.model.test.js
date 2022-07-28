@@ -13,7 +13,7 @@ describe("test mongoose User model", () => {
 
     mockingoose(UserModel).toReturn(_doc, "create");
 
-    return UserModel.create({ _doc }).then((doc) => {
+    return UserModel.create({ email: "name@email.com" }).then((doc) => {
       expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
     });
   });
@@ -28,8 +28,7 @@ describe("test mongoose User model", () => {
     mockingoose(UserModel).toReturn(_doc, "findOne");
 
     return (
-      UserModel
-        .findOne({ email: "name@email.com" }) // this won't really change anything
+      UserModel.findOne({ email: "name@email.com" }) // this won't really change anything
         //   .where({ _id: "507f191e810c19729de860ea" })
         .then((doc) => {
           expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
@@ -37,4 +36,3 @@ describe("test mongoose User model", () => {
     );
   });
 });
-
