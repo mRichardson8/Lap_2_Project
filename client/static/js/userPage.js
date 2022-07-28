@@ -207,9 +207,10 @@ userPageSubmitBtn.addEventListener("click", () => {
 
 
 
-const everything = [...document.querySelectorAll("*")];
+
 
 function darkMode() {
+  const everything = [...document.querySelectorAll("*")];
     everything.forEach(each => {
         if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
             each.style.color = '#49799b';
@@ -236,6 +237,7 @@ function darkMode() {
 }
 
 function lightMode(){
+  const everything = [...document.querySelectorAll("*")];
   everything.forEach(each => {
     if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(73, 121, 155)') {
         each.style.color = "#3decdd";
