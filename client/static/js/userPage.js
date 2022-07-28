@@ -200,48 +200,59 @@ userPageSubmitBtn.addEventListener("click", () => {
   sendHabits();
 });
 
-const btn = document.getElementsByClassName("btn-toggle")[0];
+const btn = document.getElementById('moon-button');
 
-console.log(btn);
 
 
 
 const everything = [...document.querySelectorAll("*")];
 
 function darkMode() {
-  everything.forEach((each) => {
-    console.log(each);
-    console.log(window.getComputedStyle(each).getPropertyValue("color"));
-    console.log(
-      window.getComputedStyle(each).getPropertyValue("background-color")
-    );
-    // if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
-    //     each.style.color = '#1c059f';
-    // } else if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(28, 5, 159)') {
-    //     each.style.color = "#3decdd";
-    // }
-    // if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
-    //     each.style.backgroundColor = '#1c059f';
-
-    // } else if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(28, 5, 159)') {
-    //     each.style.backgroundColor = "#3decdd";
-    // }
-    // if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
-    //     each.style.color = "#a3a2a2";
-    // } else if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(163, 162, 162)") {
-    //     each.style.color = "#ffffff"
-    // }
-    // if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
-    //     each.style.backgroundColor = '#a3a2a2';
-    // } else if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(163, 162, 162)") {
-    //     each.style.backgroundColor = "#ffffff";
-    // }
-  });
+    everything.forEach(each => {
+        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
+            each.style.color = '#1c059f';
+        }
+        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
+            each.style.backgroundColor = '#1c059f';
+    
+        }
+        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
+            each.style.color = "#a3a2a2";
+        }
+        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
+            each.style.backgroundColor = '#a3a2a2';
+        }
+    })
 }
 
-btn.addEventListener("click", () => {
-  darkMode();
-});
+function lightMode(){
+  everything.forEach(each => {
+    if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(28, 5, 159)') {
+        each.style.color = "#3decdd";
+    }
+    if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(28, 5, 159)') {
+        each.style.backgroundColor = "#3decdd";
+    }
+    if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(163, 162, 162)") {
+        each.style.color = "#ffffff"
+    }
+    if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(163, 162, 162)") {
+        each.style.backgroundColor = "#ffffff";
+    }
+})
+}
+
+btn.addEventListener('click', () => {
+    if (window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color') == 'rgb(61, 236, 221)'){
+      darkMode();
+    } else{
+      lightMode();
+    }
+    
+    
+}
+)
+  
 
 const open = document.getElementById("open");
 const modal_container = document.getElementById("modal-container");
