@@ -202,9 +202,6 @@ userPageSubmitBtn.addEventListener("click", () => {
 
 const btn = document.getElementsByClassName('btn-toggle');
 
-btn.addEventListener('click', function() {
-  darkMode();
-})
 
 const everything = [...document.querySelectorAll('*')];
 
@@ -235,9 +232,10 @@ function darkMode() {
     })
 }
 
-document.querySelector('#moon-button').addEventListener('click', () => {
+btn.addEventListener('click', function() {
     darkMode();
-})
+  })
+  
 
 
 
