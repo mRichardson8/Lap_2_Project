@@ -11,19 +11,20 @@ function createUserDetails(user) {
   settingsIcon.innerHTML =
     '<button id="open"><i class="fa-solid fa-user-gear" style="font-size: 18px;"></i></button>';
   settingsIcon.setAttribute("class", "icons");
-
-//   let modal = document.createElement("div");
-//   modal.innerHTML = '<dialog id="modal">';
-//   modal.setAttribute("class", "modal");
-
-//   let yesButton = document.createElement("button");
-//   yesButton.innerHTML = "<button>Yes</button>";
-//   yesButton.setAttribute("class", "yes-button");
-
-//   let noButton = document.createElement("button");
-//   noButton.innerHTML = "<button>No</button>";
-//   noButton.setAttribute("class", "no-button");
-
+  let chartBtn = document.createElement("button");
+  chartBtn.setAttribute("class", "chart-btn");
+  chartBtn.textContent = "See Chart";
+  chartBtn.addEventListener("click", () => {
+    if (!document.querySelector(".chart").classList.contains("chart-visible")) {
+      document.querySelector(".chart").classList.add("chart-visible");
+      document.getElementById("habits-container").style.display = "none";
+      chartBtn.textContent = "Back to Main";
+    } else {
+      document.querySelector(".chart").classList.remove("chart-visible");
+      document.getElementById("habits-container").style.display = "flex";
+      chartBtn.textContent = "See Chart";
+    }
+  });
   let settingsIcon2 = document.createElement("p");
   settingsIcon2.innerHTML =
   `<button id="moon-button"><span class="material-symbols-outlined" style="font-size: 25px;"> dark_mode </span></button>`;
@@ -32,8 +33,7 @@ function createUserDetails(user) {
   let name = document.createElement("p");
   name.innerText = user;
   name.setAttribute("class", "userName");
-
-  userNav.append(title, settingsIcon, settingsIcon2, name);
+  userNav.append(title, settingsIcon, settingsIcon2, name, chartBtn);
   dashboard.prepend(userNav);
 }
 
@@ -53,81 +53,95 @@ function createHabits(habits) {
   }
 }
 
-function createWaterDiv(data){
-  let div = document.createElement('div');
-  div.setAttribute('id', 'water-container');
-  div.setAttribute('class', 'habit-container');
-  let title = document.createElement('h3');
+function createWaterDiv(data) {
+  let div = document.createElement("div");
+  div.setAttribute("id", "water-container");
+  div.setAttribute("class", "habit-container");
+  let title = document.createElement("h3");
   title.innerText = "Water Intake";
-  let streak = document.createElement('p');
+  let streak = document.createElement("p");
   streak.innerText = "Streak : " + data.streak;
-  streak.setAttribute('class', 'habit-streak');
-  streak.setAttribute('id', "water-streak");
-  let target = document.createElement('p');
+  streak.setAttribute("class", "habit-streak");
+  streak.setAttribute("id", "water-streak");
+  let target = document.createElement("p");
   target.innerText = "Target : " + data.required + " ml";
-  target.setAttribute('class', 'habit-target');
-  target.setAttribute('id', "water-target");
-  let current = document.createElement('p');
+  target.setAttribute("class", "habit-target");
+  target.setAttribute("id", "water-target");
+  let current = document.createElement("p");
   current.innerText = "Water drank today: " + data.current + " ml";
-  current.setAttribute('class', 'habit-current');
-  current.setAttribute('id', 'water-current')
-  let addBtn = document.createElement('button');
-  addBtn.setAttribute('id', 'habit-button');
+  current.setAttribute("class", "habit-current");
+  current.setAttribute("id", "water-current");
+  let addBtn = document.createElement("button");
+  addBtn.setAttribute("id", "habit-button");
   addBtn.innerText = "+";
-  addBtn.addEventListener('click', (e) => {
-      if (e.target === document.getElementById('water-current').nextSibling) {
-          let inputDiv = document.createElement('div');
-          inputDiv.style.display = 'flex';
-          inputDiv.style.flexDirection = 'column';
-          let inputContainer = document.createElement('div');
-          inputContainer.style.display = 'flex';
-          let btnsContainer = document.createElement('div');
-          btnsContainer.style.display = 'flex';
-          let inputLabel = document.createElement('label');
-          inputLabel.textContent = 'Water consumed (ml):';
-          let inputNumber = document.createElement('input');
-          inputNumber.setAttribute('type', 'number');
-          let inputSubmitBtn = document.createElement('button');
-          inputSubmitBtn.textContent = "Add entry";
-          inputSubmitBtn.addEventListener('click', () => {
-              let waterStreak = parseInt(document.getElementById('water-streak')
-              .innerText.split(" ")[2]);
-              let waterTarget = parseInt(document.getElementById('water-target')
-              .innerText.split(" ")[2]);
-              let waterCurrent = parseInt(document.getElementById('water-current')
-              .innerText.split(" ")[3]);
-              let newEntry = parseInt(inputNumber.value);
-              if (!newEntry || newEntry <= 0) {
-                  alert("Please input a positive number to add an entry");
-              } else {
-                  let newSum = waterCurrent + newEntry;
-                  if (waterCurrent < waterTarget && newSum >= waterTarget){
-                    waterStreak += 1;
-                    document.getElementById('water-streak').innerText = "Streak : " + waterStreak;
-                  }
-                  document.getElementById('water-current').textContent =
-                  "Water drank today: " + newSum + " ml";
-                  inputDiv.remove();
-                  updateHabits({
-                    "habits.water" : {required: waterTarget, current: newSum, streak: waterStreak, met: newSum >= waterTarget}
-                  });
-              }
-              inputDiv.remove();
-          })
-          let inputUndoBtn = document.createElement('button');
-          inputUndoBtn.textContent = 'Undo';
-          inputUndoBtn.addEventListener('click', () => {
-              inputDiv.remove();
-          })
-          inputContainer.append(inputLabel, inputNumber);
-          btnsContainer.append(inputUndoBtn, inputSubmitBtn);
-          inputDiv.append(inputContainer, btnsContainer);
-          document.getElementById('water-current').parentNode
-          .insertBefore(inputDiv, document.getElementById('water-current').nextSibling);
-      }
-  })
-div.append(title, streak, target, current, addBtn);
-return div;
+  addBtn.addEventListener("click", (e) => {
+    if (e.target === document.getElementById("water-current").nextSibling) {
+      let inputDiv = document.createElement("div");
+      inputDiv.style.display = "flex";
+      inputDiv.style.flexDirection = "column";
+      let inputContainer = document.createElement("div");
+      inputContainer.style.display = "flex";
+      let btnsContainer = document.createElement("div");
+      btnsContainer.style.display = "flex";
+      let inputLabel = document.createElement("label");
+      inputLabel.textContent = "Water consumed (ml):";
+      let inputNumber = document.createElement("input");
+      inputNumber.setAttribute("type", "number");
+      let inputSubmitBtn = document.createElement("button");
+      inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.addEventListener("click", () => {
+        let waterStreak = parseInt(
+          document.getElementById("water-streak").innerText.split(" ")[2]
+        );
+        let waterTarget = parseInt(
+          document.getElementById("water-target").innerText.split(" ")[2]
+        );
+        let waterCurrent = parseInt(
+          document.getElementById("water-current").innerText.split(" ")[3]
+        );
+        let newEntry = parseInt(inputNumber.value);
+        if (!newEntry || newEntry <= 0) {
+          alert("Please input a positive number to add an entry");
+        } else {
+          let newSum = waterCurrent + newEntry;
+          if (waterCurrent < waterTarget && newSum >= waterTarget) {
+            waterStreak += 1;
+            document.getElementById("water-streak").innerText =
+              "Streak : " + waterStreak;
+          }
+          document.getElementById("water-current").textContent =
+            "Water drank today: " + newSum + " ml";
+          inputDiv.remove();
+          updateHabits({
+            "habits.water": {
+              required: waterTarget,
+              current: newSum,
+              streak: waterStreak,
+              met: newSum >= waterTarget,
+            },
+          });
+        }
+        inputDiv.remove();
+      });
+      let inputUndoBtn = document.createElement("button");
+      inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.addEventListener("click", () => {
+        inputDiv.remove();
+      });
+      inputContainer.append(inputLabel, inputNumber);
+      btnsContainer.append(inputUndoBtn, inputSubmitBtn);
+      inputDiv.append(inputContainer, btnsContainer);
+      document
+        .getElementById("water-current")
+        .parentNode.insertBefore(
+          inputDiv,
+          document.getElementById("water-current").nextSibling
+        );
+    }
+  });
+
+  div.append(title, streak, target, current, addBtn);
+  return div;
 }
 
 function createExerciseDiv(data) {
@@ -151,58 +165,69 @@ function createExerciseDiv(data) {
   let addBtn = document.createElement("button");
   addBtn.setAttribute("id", "habit-button");
   addBtn.innerText = "+";
-  addBtn.addEventListener('click', (e) => {
-    if (e.target === document.getElementById('exercise-current').nextSibling) {
-        let inputDiv = document.createElement('div');
-        inputDiv.style.display = 'flex';
-        inputDiv.style.flexDirection = 'column';
-        let inputContainer = document.createElement('div');
-        inputContainer.style.display = 'flex';
-        let btnsContainer = document.createElement('div');
-        btnsContainer.style.display = 'flex';
-        let inputLabel = document.createElement('label');
-        inputLabel.textContent = 'Minutes of Exercise:';
-        let inputNumber = document.createElement('input');
-        inputNumber.setAttribute('type', 'number');
-        let inputSubmitBtn = document.createElement('button');
-        inputSubmitBtn.textContent = "Add entry";
-        inputSubmitBtn.addEventListener('click', () => {
-            let exerciseStreak = parseInt(document.getElementById('exercise-streak')
-            .innerText.split(" ")[2]);
-            let exerciseTarget = parseInt(document.getElementById('exercise-target')
-            .innerText.split(" ")[2]);
-            let exerciseCurrent = parseInt(document.getElementById('exercise-current')
-            .innerText.split(" ")[3]);
-            let newEntry = parseInt(inputNumber.value);
-            if (!newEntry || newEntry <= 0) {
-                alert("Please input a positive number to add an entry");
-            } else {
-                let newSum = exerciseCurrent + newEntry;
-                if (exerciseCurrent < exerciseTarget && newSum >= exerciseTarget){
-                    exerciseStreak += 1;
-                    document.getElementById('exercise-streak')
-                    .innerText = "Streak : " + exerciseStreak;
-                }
-                document.getElementById('exercise-current').textContent = 
-                "Minutes exercised today: " + newSum + " minutes";
-                inputDiv.remove();
-                updateHabits({
-                  "habits.exercise" : {required: exerciseTarget, current: newSum, streak: exerciseStreak, met: newSum >= exerciseTarget}
-                });
-
-            }
-            inputDiv.remove();
-        })
-        let inputUndoBtn = document.createElement('button');
-        inputUndoBtn.textContent = 'Undo';
-        inputUndoBtn.addEventListener('click', () => {
-            inputDiv.remove();
-        })
-        inputContainer.append(inputLabel, inputNumber);
-        btnsContainer.append(inputUndoBtn, inputSubmitBtn);
-        inputDiv.append(inputContainer, btnsContainer);
-        document.getElementById('exercise-current').parentNode
-        .insertBefore(inputDiv, document.getElementById('exercise-current').nextSibling);
+  addBtn.addEventListener("click", (e) => {
+    if (e.target === document.getElementById("exercise-current").nextSibling) {
+      let inputDiv = document.createElement("div");
+      inputDiv.style.display = "flex";
+      inputDiv.style.flexDirection = "column";
+      let inputContainer = document.createElement("div");
+      inputContainer.style.display = "flex";
+      let btnsContainer = document.createElement("div");
+      btnsContainer.style.display = "flex";
+      let inputLabel = document.createElement("label");
+      inputLabel.textContent = "Minutes of Exercise:";
+      let inputNumber = document.createElement("input");
+      inputNumber.setAttribute("type", "number");
+      let inputSubmitBtn = document.createElement("button");
+      inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.addEventListener("click", () => {
+        let exerciseStreak = parseInt(
+          document.getElementById("exercise-streak").innerText.split(" ")[2]
+        );
+        let exerciseTarget = parseInt(
+          document.getElementById("exercise-target").innerText.split(" ")[2]
+        );
+        let exerciseCurrent = parseInt(
+          document.getElementById("exercise-current").innerText.split(" ")[3]
+        );
+        let newEntry = parseInt(inputNumber.value);
+        if (!newEntry || newEntry <= 0) {
+          alert("Please input a positive number to add an entry");
+        } else {
+          let newSum = exerciseCurrent + newEntry;
+          if (exerciseCurrent < exerciseTarget && newSum >= exerciseTarget) {
+            exerciseStreak += 1;
+            document.getElementById("exercise-streak").innerText =
+              "Streak : " + exerciseStreak;
+          }
+          document.getElementById("exercise-current").textContent =
+            "Minutes exercised today: " + newSum + " minutes";
+          inputDiv.remove();
+          updateHabits({
+            "habits.exercise": {
+              required: exerciseTarget,
+              current: newSum,
+              streak: exerciseStreak,
+              met: newSum >= exerciseTarget,
+            },
+          });
+        }
+        inputDiv.remove();
+      });
+      let inputUndoBtn = document.createElement("button");
+      inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.addEventListener("click", () => {
+        inputDiv.remove();
+      });
+      inputContainer.append(inputLabel, inputNumber);
+      btnsContainer.append(inputUndoBtn, inputSubmitBtn);
+      inputDiv.append(inputContainer, btnsContainer);
+      document
+        .getElementById("exercise-current")
+        .parentNode.insertBefore(
+          inputDiv,
+          document.getElementById("exercise-current").nextSibling
+        );
     }
   });
 
@@ -231,58 +256,69 @@ function createSleepDiv(data) {
   let addBtn = document.createElement("button");
   addBtn.setAttribute("id", "habit-button");
   addBtn.innerText = "+";
-  addBtn.addEventListener('click', (e) => {
-    if (e.target === document.getElementById('sleep-current').nextSibling) {
-        let inputDiv = document.createElement('div');
-        inputDiv.style.display = 'flex';
-        inputDiv.style.flexDirection = 'column';
-        let inputContainer = document.createElement('div');
-        inputContainer.style.display = 'flex';
-        let btnsContainer = document.createElement('div');
-        btnsContainer.style.display = 'flex';
-        let inputLabel = document.createElement('label');
-        inputLabel.textContent = 'Hours of sleep:';
-        let inputNumber = document.createElement('input');
-        inputNumber.setAttribute('type', 'number');
-        let inputSubmitBtn = document.createElement('button');
-        inputSubmitBtn.textContent = "Add entry";
-        inputSubmitBtn.addEventListener('click', () => {
-            let sleepStreak = parseInt(document.getElementById('sleep-streak')
-            .innerText.split(" ")[2]);
-            let sleepTarget = parseInt(document.getElementById('sleep-target')
-            .innerText.split(" ")[4]);
-            let sleepCurrent = parseInt(document.getElementById('sleep-current')
-            .innerText.split(" ")[2]);
-            let newEntry = parseInt(inputNumber.value);
-            if (!newEntry || newEntry <= 0) {
-                alert("Please input a positive number to add an entry");
-            } else {
-                let newSum = sleepCurrent + newEntry;
-                if (sleepCurrent < sleepTarget && newSum >= sleepTarget){
-                    sleepStreak += 1;
-                    document.getElementById('sleep-streak')
-                    .innerText = "Streak : " + sleepStreak;
-                }
-                document.getElementById('sleep-current').textContent = 
-                "Hours slept: " + newSum + " hours";
-                inputDiv.remove();
-                updateHabits({
-                  "habits.sleep" : {required: sleepTarget, current: newSum, streak: sleepStreak, met: newSum >= sleepTarget}
-                });
-
-            }
-            inputDiv.remove();
-        })
-        let inputUndoBtn = document.createElement('button');
-        inputUndoBtn.textContent = 'Undo';
-        inputUndoBtn.addEventListener('click', () => {
-            inputDiv.remove();
-        })
-        inputContainer.append(inputLabel, inputNumber);
-        btnsContainer.append(inputUndoBtn, inputSubmitBtn);
-        inputDiv.append(inputContainer, btnsContainer);
-        document.getElementById('sleep-current').parentNode
-        .insertBefore(inputDiv, document.getElementById('sleep-current').nextSibling);
+  addBtn.addEventListener("click", (e) => {
+    if (e.target === document.getElementById("sleep-current").nextSibling) {
+      let inputDiv = document.createElement("div");
+      inputDiv.style.display = "flex";
+      inputDiv.style.flexDirection = "column";
+      let inputContainer = document.createElement("div");
+      inputContainer.style.display = "flex";
+      let btnsContainer = document.createElement("div");
+      btnsContainer.style.display = "flex";
+      let inputLabel = document.createElement("label");
+      inputLabel.textContent = "Hours of sleep:";
+      let inputNumber = document.createElement("input");
+      inputNumber.setAttribute("type", "number");
+      let inputSubmitBtn = document.createElement("button");
+      inputSubmitBtn.textContent = "Add entry";
+      inputSubmitBtn.addEventListener("click", () => {
+        let sleepStreak = parseInt(
+          document.getElementById("sleep-streak").innerText.split(" ")[2]
+        );
+        let sleepTarget = parseInt(
+          document.getElementById("sleep-target").innerText.split(" ")[4]
+        );
+        let sleepCurrent = parseInt(
+          document.getElementById("sleep-current").innerText.split(" ")[2]
+        );
+        let newEntry = parseInt(inputNumber.value);
+        if (!newEntry || newEntry <= 0) {
+          alert("Please input a positive number to add an entry");
+        } else {
+          let newSum = sleepCurrent + newEntry;
+          if (sleepCurrent < sleepTarget && newSum >= sleepTarget) {
+            sleepStreak += 1;
+            document.getElementById("sleep-streak").innerText =
+              "Streak : " + sleepStreak;
+          }
+          document.getElementById("sleep-current").textContent =
+            "Hours slept: " + newSum + " hours";
+          inputDiv.remove();
+          updateHabits({
+            "habits.sleep": {
+              required: sleepTarget,
+              current: newSum,
+              streak: sleepStreak,
+              met: newSum >= sleepTarget,
+            },
+          });
+        }
+        inputDiv.remove();
+      });
+      let inputUndoBtn = document.createElement("button");
+      inputUndoBtn.textContent = "Undo";
+      inputUndoBtn.addEventListener("click", () => {
+        inputDiv.remove();
+      });
+      inputContainer.append(inputLabel, inputNumber);
+      btnsContainer.append(inputUndoBtn, inputSubmitBtn);
+      inputDiv.append(inputContainer, btnsContainer);
+      document
+        .getElementById("sleep-current")
+        .parentNode.insertBefore(
+          inputDiv,
+          document.getElementById("sleep-current").nextSibling
+        );
     }
   });
   div.append(title, streak, target, current, addBtn);

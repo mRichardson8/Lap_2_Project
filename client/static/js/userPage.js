@@ -204,6 +204,8 @@ const btn = document.getElementsByClassName("btn-toggle")[0];
 
 console.log(btn);
 
+
+
 const everything = [...document.querySelectorAll("*")];
 
 function darkMode() {
