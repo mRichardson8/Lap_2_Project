@@ -14,20 +14,22 @@ function createUserDetails(user) {
 
   let chartBtn = document.createElement("p");
   chartBtn.setAttribute("class", "chart-btn-container");
-  // chartBtn.textContent = "See Chart";
   chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
+
   chartBtn.addEventListener("click", () => {
+
     if (!document.querySelector(".chart").classList.contains("chart-visible")) {
       document.querySelector(".chart").classList.add("chart-visible");
       document.getElementById("habits-container").style.display = "none";
-      // chartBtn.textContent = "Back to Main";
       chartBtn.innerHTML = `<button class="chart-btn"> Back </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
+
     } else {
+
       document.querySelector(".chart").classList.remove("chart-visible");
       document.getElementById("habits-container").style.display = "block";
-      // chartBtn.textContent = "See Chart";
       chartBtn.innerHTML = `<button class="chart-btn"> See Chart </button>&nbsp<span class="material-symbols-outlined" style="font-size: 30px;"> equalizer </span>`;
     }
+
     let buttonElement = document.querySelector('button.chart-btn')
     buttonElement.style.backgroundColor = window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('background-color');
     buttonElement.style.color = window.getComputedStyle(document.querySelector('#user-page-dashboard h1')).getPropertyValue('color');
@@ -43,7 +45,7 @@ function createUserDetails(user) {
   name.setAttribute("class", "userName");
   userNav.append(title, settingsIcon, settingsIcon2, name, chartBtn);
   dashboard.prepend(userNav);
-}
+};
 
 function createHabits(habits) {
   let habitsDiv = document.getElementById("habits-container");
