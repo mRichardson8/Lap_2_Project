@@ -85,6 +85,7 @@ function createWaterDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("water-current").nextSibling) {
       let inputDiv = document.createElement("div");
+      inputDiv.setAttribute('class', "water-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
@@ -190,6 +191,7 @@ function createExerciseDiv(data) {
   addBtn.addEventListener("click", (e) => {
     if (e.target === document.getElementById("exercise-current").nextSibling) {
       let inputDiv = document.createElement("div");
+      inputDiv.setAttribute('class', "exercise-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
@@ -296,6 +298,7 @@ function createSleepDiv(data) {
 
     if (e.target === document.getElementById("sleep-current").nextSibling) {
       let inputDiv = document.createElement("div");
+      inputDiv.setAttribute('class', "sleep-input-container");
       inputDiv.style.display = "flex";
       inputDiv.style.flexDirection = "column";
       let inputContainer = document.createElement("div");
