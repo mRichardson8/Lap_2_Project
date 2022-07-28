@@ -381,7 +381,7 @@ function createChart(dataHabit) {
   // what goes on the x axis
   const labels = dataHabit.map((d) => d.date);
   const values = dataHabit.map((habits) =>
-    calcDataset(Object.entries(habits.habits))
+    calcValues(Object.entries(habits.habits))
   );
   //   const goals = Object.keys(dataHabit).length;
   const data = {
