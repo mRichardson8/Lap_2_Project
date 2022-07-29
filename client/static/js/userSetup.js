@@ -128,11 +128,11 @@ function createWaterDiv(data) {
 
       inputSubmitBtn.addEventListener("click", () => {
         let waterStreak = parseInt(
-          document.getElementById("water-streak").innerText.split(" ")[2]
+          document.getElementById("water-streak").innerText.split(" ")[1]
         );
 
         let waterTarget = parseInt(
-          document.getElementById("water-target").innerText.split(" ")[2]
+          document.getElementById("water-target").innerText.split(" ")[1]
         );
 
         let waterCurrent = parseInt(
@@ -248,10 +248,10 @@ function createExerciseDiv(data) {
 
       inputSubmitBtn.addEventListener("click", () => {
         let exerciseStreak = parseInt(
-          document.getElementById("exercise-streak").innerText.split(" ")[2]
+          document.getElementById("exercise-streak").innerText.split(" ")[1]
         );
         let exerciseTarget = parseInt(
-          document.getElementById("exercise-target").innerText.split(" ")[2]
+          document.getElementById("exercise-target").innerText.split(" ")[1]
         );
         let exerciseCurrent = parseInt(
           document.getElementById("exercise-current").innerText.split(" ")[3]
@@ -264,7 +264,7 @@ function createExerciseDiv(data) {
           if (exerciseCurrent < exerciseTarget && newSum >= exerciseTarget) {
             exerciseStreak += 1;
             document.getElementById("exercise-streak").innerText =
-              "Streak : " + exerciseStreak;
+              "Streak: " + exerciseStreak;
           }
           document.getElementById("exercise-current").textContent =
             "Minutes exercised today: " + newSum + " minutes";
@@ -365,7 +365,7 @@ function createSleepDiv(data) {
 
       inputSubmitBtn.addEventListener("click", () => {
         let sleepStreak = parseInt(
-          document.getElementById("sleep-streak").innerText.split(" ")[2]
+          document.getElementById("sleep-streak").innerText.split(" ")[1]
         );
         let sleepTarget = parseInt(
           document.getElementById("sleep-target").innerText.split(" ")[4]
@@ -381,7 +381,7 @@ function createSleepDiv(data) {
           if (sleepCurrent < sleepTarget && newSum >= sleepTarget) {
             sleepStreak += 1;
             document.getElementById("sleep-streak").innerText =
-              "Streak : " + sleepStreak;
+              "Streak: " + sleepStreak;
           }
           document.getElementById("sleep-current").textContent =
             "Hours Slept: " + newSum + " hours";
