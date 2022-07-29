@@ -42,13 +42,10 @@ describe('auth controller', () => {
                 password: testPassword,
             }
               let token = "token"
-            testUser.createJWT = jest.fn(() => token)
-            testUser.comparePassword = jest.fn(async (password)=>{
-                const isMatch = await bcrypt.compare(password, testPassword);
-                return isMatch;
-            })
+              returnedUser.createJWT = jest.fn(() => token)
+            returnedUser.comparePassword = User.prototype.comparePassword
             jest.spyOn(User, 'findOne')
-                 .mockResolvedValue(testUser);
+                 .mockResolvedValue(returnedUser);
                   const mockReq = { body: testUser }
                   await authController.login(mockReq, mockRes);
                   expect(mockStatus).toHaveBeenCalledWith(200);
