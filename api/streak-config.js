@@ -36,7 +36,6 @@ async function checkStreaks(){
     } catch(err){
         console.log(err)
     }
-    
     setTimeout(checkStreaks, 24*60*60*1000);
 }
 

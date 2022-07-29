@@ -33,8 +33,6 @@ const data = [
   },
 ];
 
-
-
 async function getUserData() {
   let response = await fetch("https://viva-pal.herokuapp.com/api/habits", {
     method: "GET",
@@ -53,11 +51,10 @@ async function getUserData() {
     console.log(data.habits);
     createUserDetails(data.name);
     createHabits(data.habits);
-    if(data.data.length > 0){
+    if (data.data.length > 0) {
       createChart(data.data);
     }
     addEventListeners();
-    
   }
 }
 
@@ -110,7 +107,7 @@ async function sendHabits() {
     console.log(data);
     createUserDetails(data.name);
     createHabits(data.habits);
-    addEventListeners()
+    addEventListeners();
     document.getElementById("user-page-create-habits-container").style.display =
       "none";
   }
@@ -209,54 +206,98 @@ userPageSubmitBtn.addEventListener("click", () => {
 
 function darkMode() {
   const everything = [...document.querySelectorAll("*")];
-    everything.forEach(each => {
-        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(61, 236, 221)") {
-            each.style.color = '#49799b';
-        }
-        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(61, 236, 221)") {
-            each.style.backgroundColor = '#49799b';
-    
-        }
-        if (window.getComputedStyle(each).getPropertyValue('border-color') === "rgb(61, 236, 221)") {
-          each.style.border = '1px solid #49799b';
-  
-      }
-      if (window.getComputedStyle(each).getPropertyValue('border-bottom-color') === "rgb(61, 236, 221)") {
-        each.style.borderBottom = '1px solid #49799b';
-
+  everything.forEach((each) => {
+    if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.color = "#49799b";
     }
-        if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(255, 255, 255)") {
-            each.style.color = "#242526";
-        }
-        if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(255, 255, 255)"){
-            each.style.backgroundColor = '#242526';
-        }
-    })
+    if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.backgroundColor = "#49799b";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.border = "1px solid #49799b";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-bottom-color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.borderBottom = "1px solid #49799b";
+    }
+
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-top-color") ===
+      "rgb(61, 236, 221)"
+    ) {
+      each.style.borderTop = "1px solid #49799b";
+    }
+
+    if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(255, 255, 255)"
+    ) {
+      each.style.color = "#242526";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(255, 255, 255)"
+    ) {
+      each.style.backgroundColor = "#242526";
+    }
+  });
 }
 
-function lightMode(){
+function lightMode() {
   const everything = [...document.querySelectorAll("*")];
-  everything.forEach(each => {
-    if (window.getComputedStyle(each).getPropertyValue('color') === 'rgb(73, 121, 155)') {
-        each.style.color = "#3decdd";
+  everything.forEach((each) => {
+    if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(73, 121, 155)"
+    ) {
+      each.style.color = "#3decdd";
     }
-    if (window.getComputedStyle(each).getPropertyValue('background-color') === 'rgb(73, 121, 155)') {
-        each.style.backgroundColor = "#3decdd";
+    if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(73, 121, 155)"
+    ) {
+      each.style.backgroundColor = "#3decdd";
     }
-    if (window.getComputedStyle(each).getPropertyValue('border-color') === "rgb(73, 121, 155)") {
-      each.style.border = '1px solid #3decdd';
-
-  }
-  if (window.getComputedStyle(each).getPropertyValue('border-bottom-color') === "rgb(73, 121, 155)") {
-    each.style.borderBottom = '1px solid #3decdd';
-
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-color") ===
+      "rgb(73, 121, 155)"
+    ) {
+      each.style.border = "1px solid #3decdd";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-bottom-color") ===
+      "rgb(73, 121, 155)"
+    ) {
+      each.style.borderBottom = "1px solid #3decdd";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("border-top-color") ===
+      "rgb(73, 121, 155)"
+    ) {
+      each.style.borderTop = "1px solid #3decdd";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("color") ===
+      "rgb(36, 37, 38)"
+    ) {
+      each.style.color = "#ffffff";
+    }
+    if (
+      window.getComputedStyle(each).getPropertyValue("background-color") ===
+      "rgb(36, 37, 38)"
+    ) {
+      each.style.backgroundColor = "#ffffff";
+    }
+  });
 }
-    if (window.getComputedStyle(each).getPropertyValue('color') === "rgb(36, 37, 38)") {
-        each.style.color = "#ffffff"
-    }
-    if (window.getComputedStyle(each).getPropertyValue('background-color') === "rgb(36, 37, 38)") {
-        each.style.backgroundColor = "#ffffff";
-    }
-})
-}  
-
