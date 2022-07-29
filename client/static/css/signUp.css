@@ -161,7 +161,7 @@
 
     .sign-up-error-message {
         font-family: 'Poppins';
-        color: var(--blue-theme);
+        color: #ec3d3d;
         font-size: 0.75rem;
         max-width: 300px;
         display: none;
