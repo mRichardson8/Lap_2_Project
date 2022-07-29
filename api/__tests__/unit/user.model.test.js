@@ -10,16 +10,8 @@ describe("test mongoose User model", () => {
       email: "name@email.com",
       password: "secret23",
     };
-<<<<<<< HEAD
-
-    mockingoose(UserModel).toReturn(_doc, "save");
-
-    return UserModel.create({ email: "name@email.com" }).then((doc) => {
-      expect(JSON.parse(JSON.stringify(doc))).toMatchObject(_doc);
-=======
     return (UserModel.create({email: "name@email.com"})).catch((err) => {
       expect(err.message).toBe('User validation failed: password: Please provide a password, name: Please provide a name');
->>>>>>> 055c119c0d23390c42581f5f29278ac3104a06b9
     });
   });
 
