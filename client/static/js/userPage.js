@@ -40,15 +40,15 @@ async function getUserData() {
       Authorization: "Bearer " + localStorage.token,
     },
   });
-  console.log(response);
+  
   let data = await response.json();
-  console.log(data);
+  
 
   if (!data) {
     document.getElementById("user-page-create-habits-container").style.display =
       "flex";
   } else {
-    console.log(data.habits);
+    
     createUserDetails(data.name);
     createHabits(data.habits);
     if (data.data.length > 0) {
@@ -100,11 +100,11 @@ async function sendHabits() {
     body: JSON.stringify(habitObj),
   });
 
-  console.log(response);
+
 
   if (response.status === 201) {
     let data = await response.json();
-    console.log(data);
+    
     createUserDetails(data.name);
     createHabits(data.habits);
     addEventListeners();
@@ -123,7 +123,7 @@ async function updateHabits(habitParam) {
     body: JSON.stringify(habitParam),
   });
   let response = await data.json();
-  console.log(response.status);
+  
 }
 
 let testHabits = {

@@ -77,7 +77,6 @@ function regExDot(x) {
 
 nameInput.addEventListener('change', () => {
     let indexPosition = signUpInputs.indexOf(nameInput);
-    console.log(indexPosition);
     errorMessages[indexPosition].style.display = 'none';
 
     if (nameInput.value === '') {
